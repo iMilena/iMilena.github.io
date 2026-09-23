@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Milena Calasans | Portfólio</title>
+<meta name="description" content="Portfólio de Milena Calasans: IA, automação de processos e blockchain.">
+<link rel="canonical" href="https://imilena.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://imilena.github.io/">
+<meta property="og:title" content="Milena Calasans | Portfólio">
+<meta property="og:description" content="Inteligência de processos, automação, agentes de IA e blockchain.">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#06070C">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%2306070C'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-size='26' font-weight='700' fill='%237CF5E4'>MC/</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#06070C; --deep:#0C0E17; --panel:#121524; --line:rgba(220,230,255,.12); --line-2:rgba(220,230,255,.22);
+  --ink:#EEF1FA; --dim:#9AA3BF; --faint:#5E6682;
+  --hope:#7CF5E4; --hope-2:#2BC7B3; --dark:#FF4B3E; --dark-2:#B51F2B; --dende:#FF8A3D; --sea:#4E8DFF;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --hud:"Chakra Petch","Segoe UI",system-ui,sans-serif;
+  --body:"Inter Tight","Segoe UI",system-ui,-apple-system,sans-serif;
+  color-scheme:dark; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--void);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;overflow-x:hidden}
+body.locked{overflow:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--hope);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+
+/* grain + scanlines */
+.grain{position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+.scan{position:fixed;inset:0;z-index:89;pointer-events:none;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.025) 0 1px,transparent 1px 3px)}
+
+/* ---------- cold open ---------- */
+.boot{position:fixed;inset:0;z-index:100;background:var(--void);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:24px;transition:opacity .9s ease,visibility .9s}
+.boot.gone{opacity:0;visibility:hidden}
+.boot .lines{font-family:var(--hud);font-size:clamp(15px,1.6vw,19px);color:var(--dim);min-height:7.5em;max-width:620px;width:100%;letter-spacing:.02em}
+.boot .lines div{opacity:0}
+.boot .lines div.on{opacity:1}
+.boot .lines .cur::after{content:"_";animation:blink 1s steps(1) infinite;color:var(--hope)}
+@keyframes blink{50%{opacity:0}}
+.boot .title{font-family:var(--hud);font-weight:700;font-size:clamp(46px,9vw,132px);letter-spacing:.06em;line-height:1;margin:18px 0 6px;opacity:0;text-align:center}
+.boot .title.on{opacity:1;animation:tune 1.4s ease-out}
+.boot .by{font-size:16px;color:var(--dim);opacity:0;transition:opacity .6s}
+.boot .by.on{opacity:1}
+.boot .go{margin-top:40px;display:flex;gap:12px;opacity:0;transition:opacity .6s;pointer-events:none}
+.boot .go.on{opacity:1;pointer-events:auto}
+@keyframes tune{0%{filter:blur(14px);letter-spacing:.4em;opacity:0}40%{filter:blur(2px);opacity:.8;transform:skewX(-8deg)}45%{transform:skewX(6deg) translateX(6px);text-shadow:-6px 0 var(--dark),6px 0 var(--hope)}55%{transform:none;text-shadow:none}100%{filter:none;letter-spacing:.06em;opacity:1}}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--hud);font-weight:600;font-size:15px;letter-spacing:.06em;padding:13px 24px;border-radius:2px;border:1px solid var(--line-2);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;transition:background .2s,border-color .2s,color .2s}
+.btn:hover{border-color:var(--hope);color:var(--hope)}
+.btn.play{background:var(--ink);color:var(--void);border-color:var(--ink)}
+.btn.play:hover{background:var(--hope);border-color:var(--hope);color:var(--void)}
+
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .3s}
+.nav.solid{background:linear-gradient(var(--void),rgba(6,7,12,.85));backdrop-filter:blur(8px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{font-family:var(--hud);font-weight:700;letter-spacing:.12em;font-size:15px;text-decoration:none}
+.brand b{font-weight:700}.brand .sl{font-style:normal;color:var(--hope)}.brand .short{display:none}
+.nav nav a{white-space:nowrap}
+.nav nav{display:flex;gap:26px;font-family:var(--hud);font-size:14px;letter-spacing:.06em}
+.nav nav a{text-decoration:none;color:var(--dim)}
+.nav nav a:hover{color:var(--ink)}
+.nav nav a.on{color:var(--ink);box-shadow:inset 0 -2px 0 var(--hope);padding-bottom:6px}
+.page[hidden]{display:none}
+.page .block,.page .credits{min-height:100vh;padding-top:130px}
+.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--hud);font-size:13px;color:var(--dim);letter-spacing:.08em}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--hope-2);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.25}}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;min-height:100svh;position:relative;display:flex;align-items:flex-end;padding:120px 0 72px;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background:radial-gradient(60% 55% at 72% 38%,rgba(78,141,255,.22),transparent 70%),radial-gradient(40% 40% at 88% 80%,rgba(255,138,61,.16),transparent 70%),var(--void)}
+.hero .skyline{position:absolute;left:0;right:0;bottom:0;height:42%;opacity:.55}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;width:100%}
+.meta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-family:var(--hud);font-size:14px;color:var(--dim);letter-spacing:.05em;margin-bottom:18px}
+.meta-row .tag{border:1px solid var(--line-2);padding:2px 8px}
+.meta-row .hope{color:var(--hope)}
+.hero h1{font-family:var(--hud);font-weight:700;font-size:clamp(44px,6.4vw,100px);line-height:.92;letter-spacing:.02em;margin:0 0 22px}
+.hero .logline{font-size:clamp(18px,1.6vw,22px);color:var(--dim);max-width:44ch;margin:0 0 30px}
+.hero .logline b{color:var(--ink);font-weight:500}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+.code-win{justify-self:end;width:min(600px,100%);border:1px solid var(--line-2);background:rgba(12,14,23,.92);backdrop-filter:blur(6px);font-family:var(--mono);font-size:14px;line-height:1.7;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.cw-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.cw-bar i{width:11px;height:11px;border-radius:50%;background:var(--faint)}
+.cw-bar i:nth-child(1){background:var(--dark)}.cw-bar i:nth-child(2){background:#FFC53D}.cw-bar i:nth-child(3){background:var(--hope-2)}
+.cw-bar span{margin-left:10px;color:var(--faint);font-size:12.5px}
+.cw-tabs{display:flex;border-bottom:1px solid var(--line);overflow-x:auto}
+.cw-tabs button{background:none;border:0;border-right:1px solid var(--line);color:var(--faint);font-family:var(--mono);font-size:13px;padding:9px 16px;cursor:pointer;white-space:nowrap}
+.cw-tabs button[aria-selected="true"]{color:var(--ink);background:var(--panel);box-shadow:inset 0 2px 0 var(--hope)}
+.cw-code{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 16px;padding:16px 18px;height:300px;overflow:auto;white-space:pre}
+.cw-code .ln{color:var(--faint);text-align:right;user-select:none;opacity:.6}
+.cw-code .src{color:#C9D1EA}
+.cw-code .caret{display:inline-block;width:8px;height:1.1em;background:var(--hope);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+.tk-c{color:#5E6682;font-style:italic}.tk-s{color:#7CF5E4}.tk-k{color:#B58CFF}.tk-n{color:#FF8A3D}.tk-f{color:#6FA8FF}.tk-p{color:#EEF1FA}
+.term{border-top:1px solid var(--line);padding:12px 18px 14px;font-size:13.5px}
+.term-out{max-height:132px;overflow:auto;color:var(--dim);white-space:pre-wrap}
+.term-out .ok{color:var(--hope)}.term-out .err{color:var(--dark)}.term-out .cmd{color:var(--ink)}
+.term-row{display:flex;gap:8px;align-items:center}
+.term-row label{color:var(--hope);white-space:nowrap}
+.term-row input{flex:1;min-width:0;background:transparent;border:0;outline:none;color:var(--ink);font:inherit;caret-color:var(--hope)}
+.term-hint{color:var(--faint);font-size:12.5px;margin-top:6px}
+.term-hint button{background:none;border:1px solid var(--line);color:var(--dim);font:inherit;font-size:12px;padding:2px 8px;margin:4px 6px 0 0;cursor:pointer}
+.term-hint button:hover{border-color:var(--hope);color:var(--hope)}
+.hero .codebg{position:absolute;inset:0;font-family:var(--mono);font-size:13px;line-height:1.9;color:var(--ink);opacity:.035;white-space:pre;overflow:hidden;padding:90px 0 0 40px;pointer-events:none;user-select:none;-webkit-mask-image:linear-gradient(90deg,#000 30%,transparent 80%);mask-image:linear-gradient(90deg,#000 30%,transparent 80%)}
+
+/* ---------- section heads ---------- */
+section.block{padding:110px 0;position:relative}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.sec-head h2{font-family:var(--hud);font-weight:700;font-size:clamp(34px,4.4vw,62px);line-height:1;letter-spacing:.01em;margin:0}
+.sec-head p{color:var(--dim);max-width:46ch;margin:0}
+.over{font-family:var(--hud);font-size:14px;letter-spacing:.1em;color:var(--hope);margin:0 0 12px}
+
+/* ---------- episodes ---------- */
+.shelf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.ep{position:relative;aspect-ratio:3/4.3;border:1px solid var(--line);background:var(--deep);cursor:pointer;overflow:hidden;text-align:left;padding:0;display:block;width:100%}
+.ep svg.art{position:absolute;inset:0;width:100%;height:100%;transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .4s}
+.ep:hover svg.art,.ep:focus-visible svg.art{transform:scale(1.06)}
+.ep .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(6,7,12,.92) 82%)}
+.ep .info{position:absolute;left:0;right:0;bottom:0;padding:18px}
+.ep .num{font-family:var(--hud);font-size:13px;letter-spacing:.1em;color:var(--dim)}
+.ep h3{font-family:var(--hud);font-weight:700;font-size:clamp(24px,2.2vw,32px);letter-spacing:.02em;line-height:1;margin:6px 0 8px}
+.ep .syn{font-size:14.5px;color:var(--dim);line-height:1.45;max-height:0;opacity:0;overflow:hidden;transition:max-height .45s,opacity .35s}
+.ep:hover .syn,.ep:focus-visible .syn{max-height:120px;opacity:1}
+.ep .badge{position:absolute;top:14px;left:14px;font-family:var(--hud);font-size:12px;letter-spacing:.08em;padding:4px 8px;background:var(--dende);color:var(--void);font-weight:700}
+.ep:hover{border-color:var(--line-2)}
+.ep:hover h3{animation:glitch .5s steps(2) 1}
+@keyframes glitch{0%{text-shadow:-3px 0 var(--dark),3px 0 var(--hope);transform:translateX(-2px)}50%{text-shadow:3px 0 var(--dark),-3px 0 var(--hope);transform:translateX(2px)}100%{text-shadow:none;transform:none}}
+
+/* ---------- sobre ---------- */
+.path{font-family:var(--mono);font-size:13.5px;color:var(--faint);margin:0 0 18px}
+.path b{color:var(--hope);font-weight:400}
+.mono{font-family:var(--mono)}
+.intro{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:64px;align-items:start}
+.intro h1{font-family:var(--hud);font-weight:700;font-size:clamp(32px,3.6vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0 0 26px;max-width:22ch}
+.intro .sum p{font-size:clamp(17px,1.35vw,20px);color:var(--dim);margin:0 0 16px;max-width:62ch}
+.intro .sum p b{color:var(--ink);font-weight:500}
+.focus{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.focus span{font-family:var(--mono);font-size:13px;padding:6px 12px;border:1px solid var(--line-2);color:var(--ink)}
+.focus span::before{content:"#";color:var(--hope);margin-right:2px}
+.facts{border:1px solid var(--line-2);background:linear-gradient(180deg,var(--panel),var(--deep))}
+.facts dl{margin:0;padding:6px 22px}
+.facts dl div{padding:14px 0;border-bottom:1px solid var(--line)}
+.facts dl div:last-child{border-bottom:0}
+.facts dt{font-family:var(--mono);font-size:12px;color:var(--faint);margin-bottom:4px}
+.facts dd{margin:0;font-size:16px}
+.facts .cta{display:flex;gap:8px;padding:0 22px 22px;flex-wrap:wrap}
+.facts .cta a{flex:1;justify-content:center;padding:11px 14px;font-size:14px}
+
+.about-sec{margin-top:110px}
+.about-sec .ttl{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:26px;border-bottom:1px solid var(--line);padding-bottom:18px}
+.about-sec h2{font-family:var(--hud);font-weight:700;font-size:clamp(26px,2.8vw,38px);line-height:1;margin:0}
+.about-sec h2 .n{font-family:var(--mono);font-size:.5em;color:var(--hope);font-weight:400;margin-right:12px;vertical-align:.35em}
+.about-sec .ttl p{margin:0;color:var(--dim);font-size:15.5px}
+
+.xp{display:grid;grid-template-columns:300px minmax(0,1fr);gap:0;border:1px solid var(--line);background:var(--deep)}
+.xp-list{border-right:1px solid var(--line);display:flex;flex-direction:column}
+.xp-list button{text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:16px 20px;cursor:pointer;color:var(--dim);display:block;width:100%}
+.xp-list button:last-child{border-bottom:0}
+.xp-list button b{display:block;font-family:var(--hud);font-size:17px;color:var(--ink);font-weight:600}
+.xp-list button span{font-family:var(--mono);font-size:12.5px;color:var(--faint)}
+.xp-list button:hover{background:rgba(255,255,255,.025)}
+.xp-list button[aria-selected="true"]{background:var(--panel);box-shadow:inset 3px 0 0 var(--hope)}
+.xp-list button[aria-selected="true"] span{color:var(--hope)}
+.xp-pane{padding:30px 34px}
+.xp-pane .role{font-family:var(--hud);font-size:clamp(22px,2vw,28px);font-weight:700;margin:0 0 6px;line-height:1.2}
+.xp-pane .meta{font-family:var(--mono);font-size:13px;color:var(--faint);margin:0 0 22px}
+.xp-pane .meta b{color:var(--hope);font-weight:400}
+.xp-pane ul{margin:0 0 22px;padding:0;list-style:none}
+.xp-pane li{position:relative;padding:0 0 12px 22px;color:var(--dim);font-size:16px;max-width:70ch}
+.xp-pane li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border:1.5px solid var(--hope)}
+.xp-pane .tools{display:flex;flex-wrap:wrap;gap:6px}
+.xp-pane .tools span{font-family:var(--mono);font-size:12.5px;padding:4px 10px;background:var(--panel);border:1px solid var(--line);color:var(--ink)}
+
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.skill{border:1px solid var(--line);background:var(--deep);padding:22px 22px 24px}
+.skill .hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.skill h3{font-family:var(--hud);font-size:19px;margin:0}
+.skill .hd span{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.skill ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
+.skill li{font-size:14.5px;padding:5px 11px;border:1px solid var(--line-2)}
+.skill li.core{border-color:var(--hope);color:var(--hope)}
+.skills-key{margin-top:14px;font-size:13.5px;color:var(--faint)}
+.skills-key i{display:inline-block;width:10px;height:10px;border:1px solid var(--hope);margin-right:6px;vertical-align:-1px}
+
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.col{border:1px solid var(--line);background:var(--deep);padding:22px}
+.col h3{font-family:var(--mono);font-size:13px;color:var(--hope);font-weight:400;margin:0 0 16px;letter-spacing:.02em}
+.item{padding:0 0 16px;margin:0 0 16px;border-bottom:1px dashed var(--line)}
+.item:last-child{border:0;margin:0;padding:0}
+.item b{display:block;font-family:var(--hud);font-size:17px;line-height:1.3}
+.item span{display:block;font-size:14.5px;color:var(--dim)}
+.item small{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.item.award b{color:var(--dende)}
+
+.offline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.tile{border:1px solid var(--line);background:var(--deep);overflow:hidden;cursor:default}
+.tile .vis{height:180px;position:relative;overflow:hidden}
+.tile .vis svg{width:100%;height:100%;display:block;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.tile:hover .vis svg{transform:scale(1.06)}
+.tile .tx{padding:18px 20px 22px}
+.tile .tx span{font-family:var(--mono);font-size:12.5px;color:var(--faint)}
+.tile h3{font-family:var(--hud);font-size:22px;margin:6px 0 8px}
+.tile p{margin:0;color:var(--dim);font-size:15.5px}
+
+/* ---------- player ---------- */
+.player{position:fixed;inset:0;z-index:80;background:var(--void);overflow-y:auto;opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s}
+.player.open{opacity:1;visibility:visible}
+.player .top{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:calc(16px + env(safe-area-inset-top,0px)) clamp(20px,4vw,56px) 16px;background:linear-gradient(var(--void) 60%,transparent)}
+.player .x{width:44px;height:44px;border:1px solid var(--line-2);background:transparent;color:var(--ink);font-size:22px;cursor:pointer;border-radius:2px}
+.player .navep{display:flex;gap:8px}
+.player .navep button{border:1px solid var(--line);background:transparent;color:var(--dim);padding:8px 14px;cursor:pointer;font-family:var(--hud);font-size:13px;letter-spacing:.06em}
+.stage{position:relative;min-height:62vh;display:flex;align-items:flex-end;overflow:hidden;border-bottom:1px solid var(--line)}
+.stage svg.art{position:absolute;inset:0;width:100%;height:100%;transition:filter .6s}
+.stage .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,7,12,.1),rgba(6,7,12,.95) 88%)}
+.stage .inner{position:relative;padding:40px clamp(20px,4vw,56px);width:100%;max-width:1280px;margin:0 auto}
+.stage h2{font-family:var(--hud);font-weight:700;font-size:clamp(46px,8vw,120px);line-height:.9;margin:6px 0 14px;letter-spacing:.02em}
+.stage .log{font-size:clamp(18px,1.7vw,23px);color:var(--dim);max-width:52ch;margin:0}
+.stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,75,62,.10) 0 2px,transparent 2px 5px),linear-gradient(180deg,rgba(181,31,43,.35),transparent 70%);opacity:0;transition:opacity .5s}
+.player.dark-mode .stage::after{opacity:1}
+.player.dark-mode{background:#0B0507}
+.ep.next{display:flex;align-items:flex-end;padding:22px;border-style:dashed;background:transparent;text-decoration:none}
+.ep.next .info{position:static;padding:0}
+.ep.next h3{color:var(--hope)}
+.player.dark-mode .stage svg.art{filter:hue-rotate(160deg) saturate(1.6) contrast(1.2)}
+.player.dark-mode .stage h2{color:var(--dark);animation:glitch .35s steps(2) 3}
+.shelf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.pc{display:flex;flex-direction:column;text-align:left;background:var(--deep);border:1px solid var(--line);padding:0;cursor:pointer;color:var(--ink);transition:border-color .25s,transform .25s}
+.pc:hover,.pc:focus-visible{border-color:var(--hope);transform:translateY(-3px)}
+.pc[hidden]{display:none}
+.pc-cv{position:relative;background:#10131F;border-bottom:1px solid var(--line);padding:14px 8px 2px}
+.pc-cv .badge{position:absolute;top:10px;left:12px}
+.pc-bd{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.pc-lb{font-family:var(--mono);font-size:12px;color:var(--hope);margin:0 0 6px}
+.pc h3{font-family:var(--hud);font-size:21px;line-height:1.2;margin:0 0 8px;font-weight:700}
+.pc-d{font-size:15px;color:var(--dim);margin:0 0 14px;line-height:1.5}
+.pc-tg{margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
+.pc-tg span{font-family:var(--mono);font-size:11.5px;border:1px solid var(--line-2);color:#C9D1EA;padding:3px 8px}
+.flow-key{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;color:var(--dim);margin:0 0 34px}
+.flow-key i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.pflow{margin-top:28px;max-width:900px;border-top:1px solid var(--line);padding-top:22px}
+.mail-sec{margin-bottom:40px}
+.mail-sec h3{font-family:var(--hud);font-size:22px;margin:0 0 6px}
+.mail-sec .sub{color:var(--dim);font-size:15px;margin:0 0 16px}
+.mail-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.mail-tabs button{font-family:var(--mono);font-size:12.5px;background:transparent;border:1px solid var(--line-2);color:var(--dim);padding:6px 11px;cursor:pointer}
+.mail-tabs button:hover{color:var(--ink);border-color:var(--ink)}
+.mail-tabs button[aria-pressed="true"]{background:var(--ink);color:var(--void);border-color:var(--ink)}
+.mail-wrap{background:#ECEBF3;padding:22px;border-radius:6px}
+.mail-meta{font-family:"Poppins",system-ui,sans-serif;font-size:12.5px;color:#5C5875;margin:0 0 12px;display:flex;gap:8px;flex-wrap:wrap}
+.mail-meta b{color:#2B2170;font-weight:600}
+.mail{max-width:560px;margin:0 auto;background:#fff;border:1px solid #DDDAEB;border-radius:10px;overflow:hidden;font-family:"Poppins",system-ui,sans-serif;color:#2A2640}
+.mail .mh{background:#2B2170;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:20px 26px;border-bottom:4px solid #FFD23F}
+.mail .mh b{font-size:19px;font-weight:700;display:block;line-height:1}
+.mail .mh small{font-size:9.5px;letter-spacing:.12em;opacity:.8}
+.mail .mh span{font-size:10.5px;letter-spacing:.14em;font-weight:600;opacity:.9}
+.mail .mb{padding:22px 26px 20px}
+.mail .mtop{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.mail .num{font-size:10.5px;letter-spacing:.1em;font-weight:600;color:#5C5875}
+.mail .pill{font-size:11.5px;font-weight:600;padding:3px 11px;border-radius:999px}
+.mail h4{font-size:21px;font-weight:700;color:#2B2170;margin:0 0 8px;line-height:1.25}
+.mail .txt{font-size:14px;line-height:1.6;color:#4A4660;margin:0 0 16px}
+.mail .box{background:#F5F3FD;border:1px solid #E3DFF5;border-radius:8px;padding:12px 16px;margin-bottom:16px}
+.mail .box div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:8px;padding:5px 0;font-size:13.5px}
+.mail .box dt{font-size:10px;letter-spacing:.1em;font-weight:600;color:#6E6A88;padding-top:2px}
+.mail .box dd{margin:0;font-weight:500}
+.mail .cta{display:inline-block;background:#FFD23F;color:#2B2170;font-weight:600;font-size:14px;padding:11px 20px;border-radius:7px;text-decoration:none}
+.mail .alt{font-size:11.5px;color:#8A86A0;margin:8px 0 16px}
+.mail .tl{border-top:1px solid #ECEAF3;padding-top:14px}
+.mail .tl p{font-size:10.5px;letter-spacing:.1em;font-weight:600;color:#5C5875;margin:0 0 8px}
+.mail .tl li{list-style:none;display:flex;align-items:center;gap:10px;font-size:13.5px;color:#8A86A0;padding:3px 0}
+.mail .tl ul{margin:0;padding:0}
+.mail .tl li i{width:10px;height:10px;border-radius:50%;border:1.5px solid #C9C5DA;flex:none}
+.mail .tl li.done{color:#4A4660}.mail .tl li.done i{background:#9B92C9;border-color:#9B92C9}
+.mail .tl li.now{color:#2B2170;font-weight:600}.mail .tl li.now i{background:#2B2170;border-color:#2B2170;box-shadow:0 0 0 3px #DCD8F2}
+.mail .mf{background:#F7F6FB;border-top:1px solid #ECEAF3;padding:14px 26px;font-size:11px;line-height:1.6;color:#7A7690}
+.mail-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin:10px 0 0}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px;align-items:center;min-height:calc(100vh - 240px)}
+.ct-h{font-family:var(--hud);font-weight:700;font-size:clamp(40px,5.4vw,80px);line-height:.98;margin:0 0 22px}
+.ct-p{color:var(--dim);font-size:clamp(17px,1.4vw,20px);max-width:44ch;margin:0 0 30px}
+.ct-facts{margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line)}
+.ct-facts div{padding:12px 18px;border-right:1px solid var(--line)}
+.ct-facts div:last-child{border-right:0}
+.ct-facts dt{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.ct-facts dd{margin:2px 0 0;font-size:15px}
+.ct-list{display:flex;flex-direction:column;gap:12px}
+.ct-item{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:16px;align-items:center;border:1px solid var(--line);background:var(--deep);padding:16px 18px;transition:border-color .2s}
+.ct-item:hover{border-color:var(--hope)}
+.ct-ic{width:52px;height:52px;display:grid;place-items:center;font-family:var(--mono);font-size:17px;color:var(--hope);border:1px solid var(--line-2);background:var(--panel)}
+.ct-tx span{display:block;font-family:var(--mono);font-size:12px;color:var(--faint);margin-bottom:2px}
+.ct-tx a{font-family:var(--hud);font-size:clamp(16px,1.4vw,19px);text-decoration:none;overflow-wrap:anywhere}
+.ct-tx a:hover{color:var(--hope)}
+.ct-ac{display:flex;gap:8px}
+.ct-ac button,.ct-ac a{font-family:var(--mono);font-size:12.5px;padding:8px 13px;border:1px solid var(--line-2);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;white-space:nowrap}
+.ct-ac .ct-go{background:var(--ink);color:var(--void);border-color:var(--ink)}
+.ct-ac button:hover{border-color:var(--hope);color:var(--hope)}
+.ct-ac .ct-go:hover{background:var(--hope);border-color:var(--hope)}
+.ct-toast{font-family:var(--mono);font-size:13px;color:var(--hope);min-height:1.4em;margin:4px 0 0}
+@media (max-width:980px){ .contact-grid{grid-template-columns:minmax(0,1fr);gap:40px;min-height:0} }
+@media (max-width:560px){ .ct-facts{grid-template-columns:minmax(0,1fr)} .ct-facts div{border-right:0;border-bottom:1px solid var(--line)} .ct-item{grid-template-columns:44px minmax(0,1fr)} .ct-ic{width:44px;height:44px;font-size:15px} .ct-ac{grid-column:1/-1} .ct-ac>*{flex:1;text-align:center} }
+.pfilters{display:flex;flex-wrap:wrap;gap:8px;margin:-8px 0 18px}
+.pfilters button{font-family:var(--mono);font-size:13.5px;background:transparent;border:1px solid var(--line-2);color:var(--dim);padding:7px 14px;cursor:pointer}
+.pfilters button:hover{color:var(--ink);border-color:var(--ink)}
+.pfilters button[aria-pressed="true"]{background:var(--hope);color:var(--void);border-color:var(--hope)}
+.pgroup{margin-bottom:56px}
+.pgroup[hidden]{display:none}
+.pgroup .gh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:20px}
+.pgroup .gh h3{font-family:var(--hud);font-size:22px;margin:0}
+.pgroup .gh span{font-family:var(--mono);font-size:12.5px;color:var(--faint)}
+.ep[hidden]{display:none}
+.stage{min-height:0}
+.stage h2{font-size:clamp(34px,4.8vw,68px);line-height:1;max-width:22ch}
+.stage .log{max-width:62ch}
+.ps{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-bottom:40px}
+.pb{border:1px solid var(--line);background:var(--deep);padding:22px;border-top:2px solid var(--dark)}
+.pb.hope{border-top-color:var(--hope)}
+.pb .vt{font-family:var(--mono);font-size:12.5px;color:var(--dark);margin:0 0 10px;letter-spacing:.06em}
+.pb.hope .vt{color:var(--hope)}
+.pb p{margin:0;color:var(--dim);font-size:16.5px}
+.sec{margin-bottom:40px}
+.sec h3{font-family:var(--hud);font-size:22px;margin:0 0 16px}
+.flow{list-style:none;margin:0;padding:0;counter-reset:f;position:relative}
+.flow::before{content:"";position:absolute;left:17px;top:18px;bottom:18px;width:2px;background:var(--line-2)}
+.flow li{counter-increment:f;position:relative;display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:14px;align-items:center;padding:9px 0}
+.flow li::before{content:counter(f);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:13px;background:var(--void);border:2px solid var(--kc);color:var(--kc);position:relative;z-index:1}
+.flow .st{font-size:16px}
+.flow .kd{font-family:var(--mono);font-size:11.5px;color:var(--kc);border:1px solid var(--kc);padding:2px 8px;white-space:nowrap}
+.flow .k-auto{--kc:#7C87A8}.flow .k-a{--kc:var(--sea)}.flow .k-h{--kc:var(--dende)}
+.dec{margin:0;padding:0;list-style:none}
+.dec li{position:relative;padding:10px 0 10px 24px;border-top:1px dashed var(--line);color:var(--dim);font-size:16px}
+.dec li::before{content:">";position:absolute;left:2px;top:10px;font-family:var(--mono);color:var(--hope)}
+.side .ficha{margin:0 0 26px}
+.side .ficha div{padding:10px 0;border-bottom:1px solid var(--line)}
+.side .ficha dt{font-family:var(--mono);font-size:12px;color:var(--faint)}
+.side .ficha dd{margin:2px 0 0;font-size:15.5px}
+.side .res{list-style:none;margin:0 0 26px;padding:0}
+.side .res li{font-family:var(--hud);font-size:17px;line-height:1.3;padding:10px 0 10px 16px;border-left:2px solid var(--hope);margin-bottom:8px;background:rgba(124,245,228,.04)}
+.side .btn{margin-top:4px}
+.body{max-width:1280px;margin:0 auto;padding:44px clamp(20px,4vw,56px) 90px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:56px}
+.twist{display:flex;align-items:center;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.twist button{display:inline-flex;align-items:center;gap:12px;background:transparent;border:1px solid var(--dark);color:var(--dark);font-family:var(--hud);font-weight:600;letter-spacing:.06em;font-size:15px;padding:12px 20px;cursor:pointer;border-radius:2px}
+.twist button[aria-pressed="true"]{background:var(--hope);border-color:var(--hope);color:var(--void)}
+.twist small{color:var(--faint);font-size:14px}
+.version{border-left:2px solid var(--hope);padding-left:22px}
+.version .vt{font-family:var(--hud);letter-spacing:.1em;font-size:13.5px;color:var(--hope);margin:0 0 10px}
+.version h3{font-family:var(--hud);font-size:clamp(24px,2.4vw,32px);line-height:1.15;margin:0 0 16px;font-weight:600}
+.version p{color:var(--dim);margin:0 0 16px;max-width:60ch}
+.version ol{margin:18px 0 0;padding:0;list-style:none;counter-reset:s}
+.version ol li{counter-increment:s;display:grid;grid-template-columns:40px minmax(0,1fr);padding:10px 0;border-top:1px solid var(--line);font-size:16.5px}
+.version ol li::before{content:counter(s,decimal-leading-zero);font-family:var(--hud);color:var(--faint)}
+.version ol li.h::after{content:"decisão humana";grid-column:2;font-family:var(--hud);font-size:12px;letter-spacing:.08em;color:var(--dende)}
+.version ol li.a::after{content:"IA";grid-column:2;font-family:var(--hud);font-size:12px;letter-spacing:.08em;color:var(--sea)}
+.player.dark-mode .version{border-color:var(--dark)}
+.player.dark-mode .version .vt{color:var(--dark)}
+.player.dark-mode .version h3{color:#FFD6D2}
+.side h4{font-family:var(--hud);font-size:13.5px;letter-spacing:.1em;color:var(--faint);font-weight:500;margin:0 0 12px}
+.side .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+.side .chips span{border:1px solid var(--line-2);padding:4px 10px;font-size:14px;font-family:var(--hud)}
+.side .res{font-family:var(--hud);font-size:22px;line-height:1.25;margin:0 0 28px}
+.side .note{font-size:14px;color:var(--faint)}
+
+/* ---------- credits ---------- */
+.credits{position:relative;min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;padding:110px 0}
+.roll{height:440px;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(transparent,#000 18%,#000 82%,transparent);text-align:center}
+.roll .inner{animation:roll 26s linear infinite}
+.roll:hover .inner{animation-play-state:paused}
+@keyframes roll{from{transform:translateY(440px)}to{transform:translateY(-100%)}}
+.roll .r{margin:0 0 26px}
+.roll .r span{display:block;font-family:var(--hud);font-size:13px;letter-spacing:.14em;color:var(--faint)}
+.roll .r b{display:block;font-weight:500;font-size:19px}
+.next h2{font-family:var(--hud);font-weight:700;font-size:clamp(38px,5vw,74px);line-height:.95;margin:0 0 20px}
+.next p{color:var(--dim);max-width:40ch;margin:0 0 30px}
+.next .actions{display:flex;gap:12px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--faint);font-size:14px;font-family:var(--hud);letter-spacing:.04em}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:980px){
+  .shelf{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-grid,.body,.credits,.intro,.xp,.ps{grid-template-columns:minmax(0,1fr)}
+  .xp-list{border-right:0;border-bottom:1px solid var(--line);flex-direction:row;overflow-x:auto}
+  .xp-list button{border-bottom:0;border-right:1px solid var(--line);min-width:190px}
+  .xp-list button[aria-selected="true"]{box-shadow:inset 0 -3px 0 var(--hope)}
+  .xp-pane{padding:24px 20px}
+  .skills,.cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .offline{grid-template-columns:minmax(0,1fr)}
+  .code-win{justify-self:stretch;width:100%}
+  .cw-code{height:260px;font-size:13px}
+  .nav nav{gap:16px;font-size:13px}
+}
+@media (max-width:560px){
+  .live{display:none}
+  .brand .full{display:none}.brand .short{display:inline}
+  .nav nav{gap:18px;font-size:14px}
+  .shelf{grid-template-columns:minmax(0,1fr)}
+  .ep{aspect-ratio:4/3.4}
+  .ep .syn{max-height:120px;opacity:1}
+  .skills,.cols{grid-template-columns:minmax(0,1fr)}
+  .roll{height:360px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .grain,.roll .inner,.live i{animation:none}
+  .boot .title.on{animation:none}
+  .ep svg.art{transition:none}
+}
+</style>
+</head>
+<body class="locked">
+<div class="grain" aria-hidden="true"></div>
+<div class="scan" aria-hidden="true"></div>
+
+<!-- COLD OPEN -->
+<div class="boot" id="boot" role="dialog" aria-label="Abertura">
+  <div class="lines" id="bootLines" aria-live="polite">
+    <div>&gt; carregando portfólio...</div>
+    <div>&gt; IA aplicada e automação de processos</div>
+    <div>&gt; blockchain e dados</div>
+    <div class="cur">&gt; Salvador, Bahia</div>
+  </div>
+  <div class="title" id="bootTitle">PORTFÓLIO</div>
+  <div class="by" id="bootBy">Milena Calasans</div>
+  <div class="go" id="bootGo">
+    <button class="btn play" type="button" id="watch">Acessar</button>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#/" aria-label="Milena Calasans, início"><b class="full">MILENA<i class="sl">/</i>CALASANS</b><b class="short">MC<i class="sl">/</i></b></a>
+    <nav aria-label="Seções">
+      <a href="#/projetos" data-nav="projetos">Projetos</a>
+      <a href="#/sobre" data-nav="sobre">Sobre mim</a>
+      <a href="#/contato" data-nav="contato">Contato</a>
+    </nav>
+    <span class="live"><i></i>ONLINE</span>
+  </div>
+</header>
+
+<main id="top">
+<div class="page" data-page="home">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bg" aria-hidden="true"></div>
+    <div class="codebg" aria-hidden="true" id="codebg"></div>
+    <div class="wrap hero-grid">
+      <div>
+        <div class="meta-row"><span class="tag">PORTFÓLIO</span><span>13 projetos</span><span>IA, automação e blockchain</span></div>
+        <h1>MILENA<br>CALASANS</h1>
+        <p class="logline"><b>A máquina faz o repetitivo. As pessoas decidem.</b> Eu construo agentes de IA, automações e sistemas em blockchain que funcionam exatamente assim.</p>
+        <div class="actions">
+          <a class="btn play" href="#/projetos">Acessar projetos</a>
+          <a class="btn" href="#/sobre">Sobre mim</a>
+        </div>
+      </div>
+      <div class="code-win" aria-label="Editor de código interativo">
+        <div class="cw-bar"><i></i><i></i><i></i><span>~/milena/portfolio</span></div>
+        <div class="cw-tabs" role="tablist" id="cwTabs"></div>
+        <div class="cw-code" id="cwCode"><div class="ln" id="cwLn"></div><div class="src" id="cwSrc"></div></div>
+        <div class="term">
+          <div class="term-out" id="termOut" aria-live="polite"></div>
+          <div class="term-row"><label for="termIn">milena@portfolio:~$</label><input id="termIn" autocomplete="off" spellcheck="false" placeholder="digite help"></div>
+          <div class="term-hint">Experimente: <button type="button" data-cmd="whoami">whoami</button><button type="button" data-cmd="projetos">projetos</button><button type="button" data-cmd="stack">stack</button><button type="button" data-cmd="contato">contato</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EPISODES -->
+</div>
+<div class="page" data-page="projetos" hidden>
+  <section class="block" id="episodios">
+    <div class="wrap">
+      <p class="path">~/milena/<b>projetos</b></p>
+      <div class="sec-head">
+        <div><h2>Projetos</h2></div>
+        <p>Automações, agentes de IA e sistemas que eu construí. Abra um projeto para ver o problema, a solução, como funciona e as ferramentas usadas.</p>
+      </div>
+      <div class="pfilters" id="pfilters" role="group" aria-label="Filtrar projetos">
+        <button type="button" data-f="all" aria-pressed="true">Todos</button>
+        <button type="button" data-f="ia" aria-pressed="false">IA e agentes</button>
+        <button type="button" data-f="auto" aria-pressed="false">Automação</button>
+        <button type="button" data-f="dados" aria-pressed="false">Dados</button>
+        <button type="button" data-f="chain" aria-pressed="false">Blockchain</button>
+        <button type="button" data-f="hard" aria-pressed="false">Robótica e sistemas</button>
+      </div>
+      <div class="flow-key" aria-label="Legenda das etapas"><span><i style="border:2px solid #7C87A8"></i>automação</span><span><i style="border:2px solid #4E8DFF;background:radial-gradient(#4E8DFF 35%,transparent 40%)"></i>IA</span><span><i style="background:#FF8A3D"></i>decisão humana</span></div>
+      <div class="pgroup"><div class="gh"><h3>Grupo Rede+</h3><span>automação de processos e IA em produção</span></div><div class="shelf" id="shelfRede"></div></div>
+      <div class="pgroup"><div class="gh"><h3>Projetos e hackathons</h3><span>blockchain, machine learning e robótica</span></div><div class="shelf" id="shelfOwn"></div></div>
+    </div>
+  </section>
+</div>
+<div class="page" data-page="sobre" hidden>
+  <section class="block" id="protagonista">
+    <div class="wrap">
+      <div class="intro">
+        <div>
+          <p class="path">~/milena/<b>sobre</b></p>
+          <h1>Inteligência de processos, automação e blockchain.</h1>
+          <div class="sum">
+            <p>Sou <b>Analista de Inteligência de Processos e IA no Grupo Rede+</b> e <b>Head of Blockchain na Quantum Cert</b>. Mapeio e redesenho processos de ponta a ponta, desenvolvo automações com Python e Power Platform, construo dashboards em Power BI e integro sistemas via API.</p>
+            <p>Na frente de blockchain, desenvolvo smart contracts em Rust para tokenização de ativos e certificação digital, com criptografia pós-quântica. Meu foco é sempre o mesmo: eficiência, menos custo operacional e decisão baseada em dados.</p>
+            <p>Técnica em Mecatrônica pelo SENAI CIMATEC e estudante de Engenharia da Computação na UNIRUY.</p>
+          </div>
+          <div class="focus"><span>processos</span><span>automação-e-rpa</span><span>dados-e-bi</span><span>ia-aplicada</span><span>blockchain</span></div>
+        </div>
+        <aside class="facts" aria-label="Resumo">
+          <dl>
+            <div><dt>base</dt><dd>Salvador, Bahia</dd></div>
+            <div><dt>modalidade</dt><dd>Remoto e híbrido</dd></div>
+            <div><dt>atuação atual</dt><dd>Grupo Rede+ e Quantum Cert</dd></div>
+            <div><dt>formação</dt><dd>Eng. da Computação (em curso) e técnica em Mecatrônica</dd></div>
+            <div><dt>idiomas</dt><dd>Português nativo, inglês intermediário, espanhol básico</dd></div>
+          </dl>
+          <div class="cta">
+            <a class="btn play" href="https://www.linkedin.com/in/milenacalasans/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/iMilena" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="about-sec">
+        <div class="ttl"><h2><span class="n">01</span>Experiência</h2><p>Selecione uma empresa para ver o que fiz.</p></div>
+        <div class="xp">
+          <div class="xp-list" role="tablist" aria-label="Experiências" id="xpList"></div>
+          <div class="xp-pane" id="xpPane" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="about-sec">
+        <div class="ttl"><h2><span class="n">02</span>Competências técnicas</h2><p>Ferramentas e linguagens que uso no dia a dia.</p></div>
+        <div class="skills" id="skills"></div>
+        <p class="skills-key"><i></i>uso principal</p>
+      </div>
+
+      <div class="about-sec">
+        <div class="ttl"><h2><span class="n">03</span>Formação e reconhecimentos</h2></div>
+        <div class="cols">
+          <div class="col"><h3>formação</h3>
+            <div class="item"><b>Engenharia da Computação</b><span>Centro Universitário Ruy Barbosa (UNIRUY)</span><small>bacharelado, em curso</small></div>
+            <div class="item"><b>Técnico em Mecatrônica</b><span>SENAI CIMATEC</span><small>concluído em 2023</small></div>
+            <div class="item"><b>Ensino Médio</b><span>SESI Salvador</span><small>concluído em 2021</small></div>
+          </div>
+          <div class="col"><h3>certificações e cursos</h3>
+            <div class="item"><b>HCIA, Artificial Intelligence V3.0</b><span>Huawei. Machine learning, deep learning e redes neurais com TensorFlow e MindSpore</span><small>2023</small></div>
+            <div class="item"><b>Complete Rust Programming Course</b><span>Udemy. Estruturas de dados, memória e otimização em Rust</span><small>em andamento</small></div>
+            <div class="item"><b>GCI World, ciência de dados</b><span>Matsuo-Iwasawa Lab, Universidade de Tóquio</span><small>em andamento, 2026</small></div>
+          </div>
+          <div class="col"><h3>prêmios e participações</h3>
+            <div class="item award"><b>1º lugar, UNICEF Youth Challenge Blockchain</b><span>Projeto Raízes do Futuro</span><small>ago 2026</small></div>
+            <div class="item award"><b>Embaixadora Estudantil Google 2026</b><span>Referência local em IA com o Google Gemini</span><small>2026</small></div>
+            <div class="item"><b>Hackathons Transpetro, Mining Hub e Vale do Dendê</b><span>Machine learning, dados geológicos e monitoramento</span><small>2025</small></div>
+            <div class="item"><b>Artigo no 51º COBENGE</b><span>Ações para ampliar a presença de mulheres em STEM</span><small>2023</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-sec">
+        <div class="ttl"><h2><span class="n">04</span>Fora do terminal</h2><p>O que me recarrega quando o código para de rodar.</p></div>
+        <div class="offline" id="offline"></div>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="page" data-page="contato" hidden>
+  <section class="block" id="creditos">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="path">~/milena/<b>contato</b></p>
+        <h2 class="ct-h">Vamos conversar.</h2>
+        <p class="ct-p">Tem um fluxo preso em planilha, um evento que precisa de uma palestra sobre IA ou uma vaga que pede alguém que não tem medo de desafio? Me chame pelo canal que preferir.</p>
+        <dl class="ct-facts">
+          <div><dt>base</dt><dd>Salvador, Bahia</dd></div>
+          <div><dt>modalidade</dt><dd>Remoto e híbrido</dd></div>
+          <div><dt>idiomas</dt><dd>Português, inglês e espanhol</dd></div>
+        </dl>
+      </div>
+      <div class="ct-list">
+        <div class="ct-item">
+          <div class="ct-ic" aria-hidden="true">@</div>
+          <div class="ct-tx"><span>e-mail</span><a href="mailto:milena.lcalasans@gmail.com">milena.lcalasans@gmail.com</a></div>
+          <div class="ct-ac"><button type="button" class="ct-copy" data-copy="milena.lcalasans@gmail.com">Copiar</button><a class="ct-go" href="mailto:milena.lcalasans@gmail.com">Enviar</a></div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-ic" aria-hidden="true">#</div>
+          <div class="ct-tx"><span>telefone e WhatsApp</span><a href="tel:+5571984233923">(71) 98423-3923</a></div>
+          <div class="ct-ac"><button type="button" class="ct-copy" data-copy="+55 71 98423-3923">Copiar</button><a class="ct-go" href="https://wa.me/5571984233923" target="_blank" rel="noopener">WhatsApp</a></div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-ic" aria-hidden="true">in</div>
+          <div class="ct-tx"><span>LinkedIn</span><a href="https://www.linkedin.com/in/milenacalasans/" target="_blank" rel="noopener">linkedin.com/in/milenacalasans</a></div>
+          <div class="ct-ac"><a class="ct-go" href="https://www.linkedin.com/in/milenacalasans/" target="_blank" rel="noopener">Abrir</a></div>
+        </div>
+        <div class="ct-item">
+          <div class="ct-ic" aria-hidden="true">&lt;/&gt;</div>
+          <div class="ct-tx"><span>GitHub</span><a href="https://github.com/iMilena" target="_blank" rel="noopener">github.com/iMilena</a></div>
+          <div class="ct-ac"><a class="ct-go" href="https://github.com/iMilena" target="_blank" rel="noopener">Abrir</a></div>
+        </div>
+        <p class="ct-toast" id="ctToast" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+<footer><div class="wrap"><span>Portfólio de Milena Calasans</span><span>Salvador, Bahia</span></div></footer>
+
+<!-- PLAYER -->
+<div class="player" id="player" role="dialog" aria-modal="true" aria-labelledby="pTitle" aria-hidden="true">
+  <div class="top">
+    <span class="navep"><button type="button" id="pPrev">Anterior</button><button type="button" id="pNext">Próximo</button></span>
+    <button class="x" type="button" id="pClose" aria-label="Fechar projeto">×</button>
+  </div>
+  <div class="stage">
+    <div id="pArt" style="position:absolute;inset:0"></div>
+    <div class="shade"></div>
+    <div class="inner">
+      <div class="meta-row" id="pMeta"></div>
+      <h2 id="pTitle"></h2>
+      <p class="log" id="pLog"></p>
+      <div class="pflow" id="pFlow"></div>
+    </div>
+  </div>
+  <div class="body">
+    <div id="pMain"></div>
+    <aside class="side" id="pSide"></aside>
+  </div>
+</div>
+
+<script>
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ======== episodes ======== */
+const T_AUTO="", T_IA="a", T_HU="h";
+const EPS = [
+  {g:"rede", t:"GARIMPEIROS", nodes:[["06h",""],["garimpa","a"],["notícias","a"],["extrai","a"],["avalia","a"],["prioriza","h"]], name:"Central de Editais com IA", origin:"Grupo Rede+", cat:["ia","auto"], art:"orbits", pal:["#4E8DFF","#7CF5E4","#B58CFF"],
+   syn:"Agentes que encontram, leem, avaliam e acompanham editais todos os dias.",
+   lead:"Uma rotina diária com cinco agentes especializados que entrega cada edital de inovação já lido, avaliado e com recomendação.",
+   period:"2026", status:"Em produção, rotina diária às 6h", role:"Arquitetura, especificação dos agentes e operação",
+   problem:"O time acompanhava editais visitando portal por portal. Oportunidades venciam sem ninguém ver e a mesma chamada aparecia repetida em fontes diferentes. Quando a primeira versão, com agentes nativos do Notion, ficou sem créditos de IA, a garimpagem parou.",
+   solution:"Uma rotina agendada no Claude Code orquestra cinco agentes especializados. Cada agente lê a própria especificação numa página do Notion no momento da execução, então mudar o comportamento de um agente é editar uma página, sem mexer no gatilho.",
+   steps:[["Rotina agendada dispara às 6h",T_AUTO],["Garimpeiro varre os sites cadastrados e busca na web",T_IA],["Garimpeiro 2 procura editais em notícias por palavras-chave curadas",T_IA],["Extrator lê a página e o PDF e completa os campos",T_IA],["Avaliador cruza com o perfil das frentes e escreve relatório de aderência em 5 blocos",T_IA],["Equipe define prioridade e status",T_HU],["Monitor revisita os editais abertos às segundas",T_IA]],
+   decisions:["Deduplicação por nome, órgão emissor e data limite, porque o mesmo edital aparece com links diferentes.","Status, prioridade e revisão são campos exclusivamente humanos: nenhum agente preenche.","Especificações versionadas no Notion e executadas por subagentes, sem instalar nada no ambiente.","Fonte nova descoberta por agente entra marcada para revisão, nunca aprovada em silêncio.","Cada rodada grava um resumo datado numa página de log."],
+   results:["Garimpagem diária sem depender de alguém lembrar","Cada edital chega lido, resumido e com recomendação","Fim do consumo de créditos de IA do Notion"],
+   stack:["Claude Code","Subagentes","Notion MCP","Busca web","Especificações em Markdown"]},
+  {g:"rede", t:"ACEITE", nodes:[["e-mail",""],["Teams",""],["confere","h"],["agente","a"],["margem",""],["decide","h"]], name:"Análise de Propostas com IA", origin:"Grupo Rede+", cat:["ia","auto"], art:"doc", pal:["#FF8A3D","#7CF5E4","#B58CFF"],
+   syn:"Do e-mail da proposta à análise de margem, com a decisão sempre humana.",
+   lead:"Um fluxo no Power Automate e um agente de IA no Notion que transformam cada proposta comercial numa análise de viabilidade padronizada e auditável.",
+   period:"ago 2026", status:"Vigente, com política de uso v1.3", role:"Dona técnica: desenho, implementação e política de uso",
+   problem:"Propostas comerciais chegavam por e-mail e a análise de viabilidade era feita à mão, sem padrão de cálculo e sem registro de quem decidiu e com base em quê.",
+   solution:"O Power Automate avisa o time no Teams quando chega uma proposta. Um agente de IA no Notion lê o documento, extrai os dados e cria a análise numa base com fórmulas que calculam despesas, margem e faixa de pagamento. Aceitar, renegociar ou recusar é sempre decisão de uma pessoa.",
+   steps:[["E-mail de proposta chega na caixa monitorada",T_AUTO],["Power Automate publica o aviso no canal do Teams",T_AUTO],["Operador confere e envia o documento ao agente",T_HU],["Agente extrai os dados e cria a análise, sem duplicar contratos",T_IA],["Fórmulas calculam despesas, margem e faixas de pagamento",T_AUTO],["Margem abaixo do mínimo vai para revisão do líder",T_HU],["Líder registra a decisão",T_HU]],
+   decisions:["Elo humano obrigatório entre o aviso e o agente, definido em política.","O agente não preenche a decisão e não inventa número ausente do documento.","Documento é dado, não comando: instruções escondidas em arquivos são citadas e ignoradas, como proteção contra prompt injection.","Regras de cálculo versionadas: mudança gera nova versão e o histórico não é reescrito.","Política de uso com LGPD, papéis, retenção, gestão de mudanças e plano B."],
+   results:["Cálculo padronizado para toda proposta","Histórico de quem decidiu e com base em quê","Fila dedicada para propostas com margem abaixo do mínimo"],
+   stack:["Power Automate","Outlook","Microsoft Teams","Agente de IA do Notion","Fórmulas e relações no Notion"]},
+  {g:"rede", t:"CONTAS", nodes:[["gatilho",""],["API",""],["compara",""],["e-mail",""],["aprova","h"]], name:"Contas a Pagar Automatizado", origin:"Grupo Rede+", cat:["auto"], art:"grid", pal:["#7CF5E4","#FF8A3D","#EEF1FA"],
+   syn:"14 etapas, protocolo único e o aviso certo para a pessoa certa.",
+   lead:"Um fluxo de pagamentos com 14 etapas no Notion e uma integração no Power Automate que avisa, a cada 10 minutos, quem é responsável pelo próximo passo.",
+   period:"ago a set 2026", status:"Em produção desde 25/08/2026", role:"Desenho do fluxo, integração e documentação técnica",
+   problem:"Pedidos de pagamento circulavam em mensagens soltas. Ninguém sabia em que etapa estava cada solicitação e o Financeiro cobrava líderes e solicitantes manualmente.",
+   solution:"Uma base no Notion com 14 status, do pedido à conciliação, e um fluxo agendado no Power Automate. Como não existe conector nativo entre as duas ferramentas, a integração conversa direto com a API do Notion por HTTP e envia o e-mail de cada etapa.",
+   steps:[["Recorrência a cada 10 minutos",T_AUTO],["Consulta à API do Notion: pedidos editados nos últimos 20 minutos",T_AUTO],["Extrai status, protocolo, solicitante, líder e beneficiário",T_AUTO],["Compara com o último status já notificado",T_AUTO],["Envia o e-mail daquela etapa para o responsável",T_AUTO],["Grava o status notificado para não repetir o aviso",T_AUTO],["Líder, Financeiro e direção aprovam nas etapas deles",T_HU]],
+   decisions:["Janela de consulta com o dobro do intervalo: se um ciclo falha, o seguinte recupera.","Campo de controle funciona como memória do fluxo e impede e-mail duplicado.","Sem e-mail cadastrado, o fluxo dispara um alerta de cadastro incompleto em vez de falhar em silêncio.","Modelo único de e-mail com cor por status e padrão de assunto que facilita a busca na caixa.","Entradas seguras nas ações HTTP para esconder o token do histórico de execuções."],
+   results:["14 etapas rastreáveis com protocolo único","16 ações de e-mail padronizadas: 10 avisos e 6 alertas","Menos cobrança manual entre as áreas"],
+   stack:["Power Automate","API do Notion via HTTP","Notion (rollups e relações)","Office 365 Outlook","Expressões do Power Automate"], email:true},
+  {g:"rede", t:"FILA", nodes:[["formulário","h"],["webhook",""],["switch",""],["e-mail",""],["entrega","h"]], name:"Fila de Demandas de Marketing", origin:"Grupo Rede+", cat:["auto"], art:"funnel", pal:["#B58CFF","#FF8A3D","#7CF5E4"],
+   syn:"Fluxos mapeados em BPMN e pedidos de marketing com protocolo e prazo.",
+   lead:"Mapeamento BPMN dos fluxos do marketing e uma fila única de demandas, em que toda peça entra por formulário e cada mudança de status avisa as pessoas certas.",
+   period:"set 2026", status:"Em implantação", role:"Mapeamento de processos, desenho e automação",
+   problem:"O marketing recebia pedidos por WhatsApp, e-mail e conversa. Não havia fila, prazo nem histórico, e nenhum fluxo de marketing gerava oportunidades para o comercial.",
+   solution:"Mapeei em BPMN os fluxos de captação de leads, cases e demandas usando só as ferramentas que a empresa já tinha. Para as demandas, criei a fila no Notion: formulário de 10 perguntas, squad preenchido pela base do time e um webhook para o Power Automate, que escolhe texto e destinatário por status.",
+   steps:[["Pessoa do time abre a demanda pelo formulário",T_HU],["Solicitante e squad vêm automaticamente da base do time",T_AUTO],["Automação do Notion envia um webhook ao Power Automate",T_AUTO],["Switch escolhe destinatário e texto entre 9 status",T_AUTO],["E-mail com protocolo MKT e link da demanda",T_AUTO],["Marketing tria, produz e entrega, com até 2 rodadas de ajuste",T_HU]],
+   decisions:["Só entra na fila o que vem pelo formulário, e sem resposta anônima.","Uma única ação de e-mail alimentada por variáveis, em vez de uma ação por status.","Caso padrão encerra o fluxo, evitando e-mail vazio se surgir um status novo.","Rotina provisória de hora em hora como plano B enquanto o conector premium não é liberado."],
+   results:["Fila única com protocolo e prazo previsto","Solicitante e marketing avisados a cada etapa","Mapa BPMN editável dos três fluxos"],
+   stack:["BPMN","Notion (formulários, automações e webhook)","Power Automate","Outlook"]},
+  {g:"rede", t:"DIAGNÓSTICO", nodes:[["quiz","h"],["radar",""],["função",""],["lead",""],["comercial","h"]], name:"Diagnóstico de Inovação", origin:"Grupo Rede+", cat:["auto","dados"], art:"radar", pal:["#7CF5E4","#4E8DFF","#FF8A3D"],
+   syn:"Um quiz de maturidade que já entrega o lead pronto para o comercial.",
+   lead:"Um quiz de maturidade em inovação que mostra o resultado na hora e leva cada resposta direto para a base de leads, sem duplicar.",
+   period:"set 2026", status:"No ar desde 14/09/2026", role:"Desenho do quiz, integração e testes de ponta a ponta",
+   problem:"O comercial não recebia oportunidades vindas do marketing. Não existia nenhuma isca que atraísse empresas e já qualificasse o contato.",
+   solution:"O Quiz de Maturidade em Inovação tem 8 perguntas em seis dimensões e devolve um gráfico radar com mensagem por faixa. Cada resposta segue para uma Edge Function no Supabase, que cria ou atualiza o perfil da empresa na base de leads do Notion.",
+   steps:[["Empresa responde 8 perguntas em escala de 1 a 5",T_HU],["Radar de 6 dimensões calculado na hora",T_AUTO],["Site envia a resposta para a Edge Function com segredo de verificação",T_AUTO],["Função cria ou atualiza o lead no Notion",T_AUTO],["Comercial faz o contato",T_HU]],
+   decisions:["Nunca duplicar: quem refaz o diagnóstico atualiza o próprio perfil.","O Notion é a base de registro do comercial; outras ferramentas só captam.","Credenciais da função guardadas como segredos, fora do código."],
+   results:["Primeira isca de marketing ligada direto ao comercial","Lead chega com diagnóstico, não só com e-mail","Fluxo testado de ponta a ponta"],
+   stack:["Lovable","Supabase Edge Functions","TypeScript","Chart.js","API do Notion"]},
+  {g:"rede", t:"SINCRONIA", nodes:[["06h",""],["schema",""],["índice",""],["API ERP",""],["upsert",""],["relatório",""]], name:"Integração ERP e Notion", origin:"Grupo Rede+", cat:["dados","auto"], art:"sync", pal:["#4E8DFF","#7CF5E4","#FF8A3D"],
+   syn:"Clientes e fornecedores atualizados todo dia, sem digitação.",
+   lead:"Um script em Python que espelha, todo dia às 6h, os clientes e fornecedores do ERP financeiro numa base oficial do Notion.",
+   period:"jul 2026", status:"Em produção, rotina diária", role:"Script, arquitetura e documentação",
+   problem:"O cadastro de clientes e fornecedores ficava no ERP e era copiado à mão para o Notion. A alternativa era contratar uma ferramenta paga de integração.",
+   solution:"O script lê clientes e fornecedores pela API do ERP e cria ou atualiza cada registro no Notion. Antes de escrever, confere se a estrutura da base continua a mesma, e ao final gera um relatório da rodada.",
+   steps:[["Agendamento diário às 6h",T_AUTO],["Confere a estrutura da base antes de escrever",T_AUTO],["Carrega o índice dos registros existentes numa única varredura",T_AUTO],["Busca clientes e fornecedores paginando a API",T_AUTO],["Cria ou atualiza cada registro",T_AUTO],["Relatório de criados, atualizados e erros",T_AUTO],["Correções são feitas no ERP, a partir de comentários",T_HU]],
+   decisions:["Índice em memória: a leitura de uma base de 500 cadastros caiu de cerca de 500 para 5 requisições.","Controle de taxa com nova tentativa em limite de uso e espera progressiva em erros do servidor.","Credenciais apenas em variáveis de ambiente.","Base com permissão de comentário: erro se corrige na origem, não na cópia.","Nomes neutros na base para sobreviver a uma troca de ERP."],
+   results:["Dispensou a contratação de uma ferramenta paga de integração","Cadastro atualizado todo dia","Base que também alimenta o contas a pagar"],
+   stack:["Python","API REST do ERP","API do Notion","GitHub Actions"]},
+  {g:"rede", t:"FAROL", nodes:[["06h",""],["exporta",""],["dados",""],["lança","h"],["farol",""]], name:"Painéis de Desempenho", origin:"Grupo Rede+", cat:["dados"], art:"bars", pal:["#FF8A3D","#7CF5E4","#4E8DFF"],
+   syn:"Metas de cada squad num painel com farol mensal.",
+   lead:"Painéis de metas em quatro camadas, alimentados todo dia pelos dados financeiros, com farol mensal e lançamento de indicadores por responsável.",
+   period:"set 2026", status:"Em desenvolvimento", role:"Arquitetura de dados, desenho dos painéis e da tela de lançamento",
+   problem:"Metas acompanhadas em planilhas desatualizadas e sem uma fonte oficial para o faturamento.",
+   solution:"Uma exportação diária do movimento financeiro alimenta painéis em quatro camadas: visão geral, indicadores estratégicos, quadro detalhado e resultados financeiros. Os indicadores manuais entram por uma tela em que cada líder vê só o que deve lançar.",
+   steps:[["GitHub Actions exporta o financeiro às 6h",T_AUTO],["Planilha para leitura humana no Notion",T_AUTO],["Camada de dados para o painel",T_AUTO],["Líderes lançam os indicadores manuais",T_HU],["Farol do mês recalculado",T_AUTO]],
+   decisions:["Uma exportação, dois destinos: um para pessoas e outro para o painel.","Tela de lançamento que mostra o que falta e confirma que salvou.","Identidade visual da empresa com modo claro e escuro."],
+   results:["Fonte oficial única para o faturamento","Reunião mensal guiada pelos números de cada squad"],
+   stack:["Python","GitHub Actions","Power BI","SharePoint","Lovable"]},
+  {g:"rede", t:"CRM", nodes:[["exporta",""],["normaliza",""],["revisa","h"],["importa",""],["CRM",""]], name:"Migração de CRM", origin:"Grupo Rede+", cat:["dados"], art:"merge", pal:["#B58CFF","#7CF5E4","#4E8DFF"],
+   syn:"Três fontes comerciais viraram uma base única.",
+   lead:"Migração do histórico comercial de dois pipelines do Pipefy e uma base do Pipedrive para um CRM único no Notion.",
+   period:"ago 2026", status:"Concluído", role:"Análise, normalização e importação em lote",
+   problem:"O histórico comercial estava espalhado em três fontes com formatos e campos diferentes, sem visão única das oportunidades.",
+   solution:"Analisei os pipelines de origem, normalizei os registros num arquivo mestre e importei tudo em lote para uma base de CRM no Notion, com atualização de esquema e padrão de criação em lote.",
+   steps:[["Exportação das três fontes",T_AUTO],["Normalização dos campos",T_AUTO],["Revisão de conflitos e duplicidades",T_HU],["Importação em lote",T_AUTO],["CRM único disponível para o comercial",T_AUTO]],
+   decisions:["Arquivo mestre como etapa intermediária, para conferir antes de importar.","Padrão reutilizável de importação em lote para futuras migrações."],
+   results:["844 registros normalizados","CRM único no Notion"],
+   stack:["Python","Excel","API do Notion","Pipefy","Pipedrive"]},
+  {g:"rede", t:"IA NA EMPRESA", nodes:[["mapeia",""],["define","h"],["workshop","h"],["casos","a"]], name:"Adoção de IA na Empresa", origin:"Grupo Rede+", cat:["ia"], art:"signal", pal:["#FF8A3D","#B58CFF","#7CF5E4"],
+   syn:"Uma empresa inteira aprendendo a usar IA com regra clara.",
+   lead:"Organização das ferramentas de IA da empresa, com o Claude como assistente oficial, e um workshop prático para o time.",
+   period:"2026", status:"Em andamento", role:"Referência interna de IA, desenho do programa e facilitação",
+   problem:"Várias ferramentas de IA disponíveis, sem clareza de quem podia usar cada uma e para quê. Parte do time tinha receio de usar e parte usava sem regra.",
+   solution:"Mapeei licenças e acessos, defini o Claude como assistente oficial e as demais como apoio, e conduzi um workshop prático de 90 minutos focado em casos de uso do dia a dia.",
+   steps:[["Mapear as IAs disponíveis e os acessos",T_AUTO],["Definir o assistente oficial",T_HU],["Workshop prático com o time",T_HU],["Casos de uso nascendo nas áreas",T_IA]],
+   decisions:["Reforçar no início do workshop quem tem acesso a cada ferramenta, para legitimar o uso.","Mais tempo para o assistente oficial e visão geral das alternativas."],
+   results:["Uso de IA com regra clara","Automações nascendo a partir das áreas"],
+   stack:["Claude","ChatGPT","Copilot","Gemini","Notion AI"]},
+  {g:"own", t:"RAÍZES", nodes:[["coleta",""],["visão IA","a"],["confere","h"],["Solana",""],["multisig","h"]], name:"Raízes do Futuro", origin:"Boipeba, Bahia", badge:"1º LUGAR UNICEF", cat:["chain","ia"], art:"tree", pal:["#1F7A55","#7CF5E4","#FF8A3D"],
+   syn:"Coleta de resíduos validada por IA e receita rastreável em blockchain.",
+   lead:"Economia circular, renda familiar e proteção à infância em Boipeba, com blockchain e dinheiro programável. Quem coleta resíduo é pago por isso e parte da receita vai para a saúde e a educação das crianças. Vencedor do UNICEF Youth Challenge Blockchain 2026.",
+   period:"2026", status:"MVP em operação", role:"Líder da equipe e desenho da camada de IA",
+   problem:"A coleta de resíduos na ilha não gerava renda para quem coletava e não havia como provar para onde ia o dinheiro.",
+   solution:"Um app de campo que funciona sem internet registra cada coleta. Visão computacional confere o registro, casos suspeitos vão para uma pessoa e só o resumo diário vai para a blockchain Solana. Os pagamentos saem de um cofre que exige 2 de 3 assinaturas.",
+   steps:[["Coletor registra no app, mesmo sem internet",T_AUTO],["Quatro detectores conferem a coleta: foto repetida, peso incoerente, sequência improvável",T_IA],["Coleta suspeita vai para conferência humana",T_HU],["Resumo do dia registrado na Solana",T_AUTO],["Pagamento só sai com 2 de 3 assinaturas",T_HU]],
+   decisions:["Coletores pseudonimizados: dados pessoais não vão para a cadeia.","Só a raiz de Merkle e os totais do dia são publicados.","IA apenas na validação da coleta; nenhum modelo preditivo sobre dados das crianças."],
+   results:["1º lugar no UNICEF Youth Challenge Blockchain 2026","Receita auditável pela comunidade"],
+   stack:["Solana","Visão computacional","React","Vite","PWA offline"], site:"https://raizes-do-futuro-mvp.vercel.app/", link:"https://github.com/iMilena/raizes-do-futuro-mvp"},
+  {g:"own", t:"NEXUS", nodes:[["dados",""],["modelo","a"],["janela",""],["docagem","h"]], name:"NEXUS", origin:"Hackathon Transpetro 2025", cat:["ia","dados"], art:"wave", pal:["#4E8DFF","#7CF5E4","#1F7A55"],
+   syn:"Machine learning para cuidar do casco na hora certa.",
+   lead:"Sistema que monitora e prevê o nível de incrustação no casco das embarcações para otimizar a manutenção e reduzir consumo de combustível.",
+   period:"nov 2025", status:"Protótipo de hackathon", role:"Desenvolvimento com a equipe NEXUS",
+   problem:"Cracas e algas no casco aumentam o arrasto e o consumo de combustível, e a manutenção costuma acontecer por calendário ou depois do problema.",
+   solution:"Um modelo de machine learning estima o nível de incrustação a partir de dados de operação e sugere a janela de manutenção, apoiando a descarbonização da frota.",
+   steps:[["Dados de operação da frota",T_AUTO],["Modelo prevê o nível de incrustação",T_IA],["Sugestão de janela de manutenção",T_AUTO],["Equipe decide a docagem",T_HU]],
+   decisions:["Manutenção guiada por previsão, não por calendário fixo."],
+   results:["Protótipo funcional apresentado no hackathon"],
+   stack:["Python","Machine learning"], link:"https://github.com/iMilena/NEXUS-"},
+  {g:"own", t:"RETORNO", nodes:[["posição",""],["erro",""],["ajuste",""],["alvo",""]], name:"Navegação Autônoma em ROS2", origin:"Robótica", cat:["hard"], art:"spiral", pal:["#B58CFF","#7CF5E4","#FF8A3D"],
+   syn:"Um robô que mede, compara e corrige o caminho.",
+   lead:"Controle go-to-goal em ROS2: o robô lê a própria posição, calcula o erro até o alvo e ajusta velocidade e direção em malha fechada.",
+   period:"", status:"Projeto de estudo", role:"Implementação do controlador",
+   problem:"Levar um robô até um ponto de destino de forma estável, corrigindo desvios ao longo do caminho.",
+   solution:"Nós em Python no ROS2 que leem a odometria, calculam distância e ângulo até o alvo e publicam comandos de velocidade continuamente.",
+   steps:[["Lê a posição atual",T_AUTO],["Calcula o erro até o alvo",T_AUTO],["Ajusta velocidade linear e angular",T_AUTO],["Chega ao destino",T_AUTO]],
+   decisions:["Controle em malha fechada, a mesma lógica que aplico em processos: medir, comparar, corrigir."],
+   results:["Navegação estável até o ponto alvo"],
+   stack:["ROS2","Python"], link:"https://github.com/iMilena/Go-to-goal_ROS2"},
+  {g:"own", t:"PREVENÇÃO", nodes:[["coleta",""],["regra",""],["alerta",""],["age","h"]], name:"Monitoramento Preventivo", origin:"Hackathon Vale do Dendê", cat:["hard","dados"], art:"pulse", pal:["#FF8A3D","#7CF5E4","#4E8DFF"],
+   syn:"Alerta antes que o risco vire incidente.",
+   lead:"Sistema construído em hackathon para acompanhar indicadores e disparar alertas preventivos.",
+   period:"2025", status:"Protótipo de hackathon", role:"Desenvolvimento",
+   problem:"Riscos identificados tarde demais, quando já viraram incidente.",
+   solution:"Aplicação em TypeScript que acompanha indicadores, avalia regras de risco e dispara alertas para o responsável agir antes.",
+   steps:[["Coleta de indicadores",T_AUTO],["Regra de risco avalia",T_AUTO],["Alerta preventivo",T_AUTO],["Responsável age",T_HU]],
+   decisions:["Prevenção no lugar de reação."],
+   results:["Protótipo apresentado no hackathon"],
+   stack:["TypeScript"], link:"https://github.com/iMilena/SISTEMA-DE-MONITORAMENTO-PREVENTIVO"}
+];
+
+function rng(seed){ let s=seed; return ()=>((s=Math.imul(s^s>>>15,1|s),s^=s+Math.imul(s^s>>>7,61|s),((s^s>>>14)>>>0)/4294967296)); }
+function art(ep,i){
+  const [a,b,c]=ep.pal, r=rng(i*977+13), W=300, H=430; let g="";
+  const bg=`<rect width="${W}" height="${H}" fill="#0C0E17"/><circle cx="${W*.7}" cy="${H*.35}" r="190" fill="${a}" opacity=".18"/>`;
+  if(ep.art==="tree"){
+    const br=(x,y,ang,len,d)=>{ if(d>7) return; const x2=x+Math.cos(ang)*len, y2=y+Math.sin(ang)*len; g+=`<line x1="${x}" y1="${y}" x2="${x2}" y2="${y2}" stroke="${d<3?c:b}" stroke-width="${Math.max(.6,5-d*.7)}" stroke-linecap="round" opacity=".85"/>`; if(d>=6) g+=`<circle cx="${x2}" cy="${y2}" r="3" fill="${b}"/>`; br(x2,y2,ang-.45-r()*.2,len*.74,d+1); br(x2,y2,ang+.4+r()*.2,len*.74,d+1); };
+    br(150,360,-Math.PI/2,70,0);
+    for(let k=0;k<6;k++){ g+=`<path d="M150 360 q${(r()-.5)*120} 30 ${(r()-.5)*200} 70" stroke="${c}" fill="none" opacity=".6"/>`; }
+  } else if(ep.art==="orbits"){
+    for(let k=0;k<5;k++){ const rx=40+k*24, ry=16+k*11, rot=r()*180; g+=`<ellipse cx="150" cy="190" rx="${rx}" ry="${ry}" fill="none" stroke="${k%2?b:c}" opacity=".7" transform="rotate(${rot} 150 190)"/>`; const t=r()*6.28; const px=150+Math.cos(t)*rx, py=190+Math.sin(t)*ry; g+=`<circle cx="${px}" cy="${py}" r="6" fill="${b}" transform="rotate(${rot} 150 190)"/>`; }
+    g+=`<circle cx="150" cy="190" r="22" fill="${a}"/><circle cx="150" cy="190" r="34" fill="none" stroke="${a}" opacity=".5"/>`;
+  } else if(ep.art==="bars"){
+    for(let k=0;k<9;k++){ const h=40+r()*210, x=30+k*28; const col=k===6?c:(h>170?b:a); g+=`<rect x="${x}" y="${330-h}" width="18" height="${h}" fill="${col}" opacity="${k===6?1:.75}"/>`; }
+    g+=`<line x1="20" y1="330" x2="280" y2="330" stroke="#EEF1FA" opacity=".4"/><circle cx="250" cy="70" r="14" fill="#2BC7B3"/><circle cx="220" cy="70" r="14" fill="#FFC53D" opacity=".4"/><circle cx="190" cy="70" r="14" fill="#FF4B3E" opacity=".4"/>`;
+  } else if(ep.art==="grid"){
+    for(let y=0;y<9;y++) for(let x=0;x<6;x++){ const on=r()>.62; g+=`<rect x="${34+x*40}" y="${60+y*34}" width="30" height="22" fill="${on?(r()>.5?a:c):"none"}" stroke="${b}" stroke-opacity=".35" opacity="${on?.85:1}"/>`; }
+    g+=`<path d="M49 71 H249 V139 H89 V207 H209 V275 H129 V343" fill="none" stroke="${b}" stroke-width="2.5"/>`;
+  } else if(ep.art==="wave"){
+    for(let k=0;k<14;k++){ let d=`M0 ${230+k*14}`; for(let x=0;x<=300;x+=20){ d+=` L${x} ${230+k*14+Math.sin(x/28+k*.7)*(10-k*.4)}`; } g+=`<path d="${d}" fill="none" stroke="${k<4?b:a}" opacity="${.9-k*.05}"/>`; }
+    g+=`<path d="M70 222 L230 222 L205 252 L95 252 Z" fill="#EEF1FA" opacity=".85"/><rect x="130" y="196" width="46" height="26" fill="${c}"/>`;
+  } else if(ep.art==="spiral"){
+    let d="M150 200"; for(let t=0;t<30;t+=.2){ const rr=6+t*4.4; d+=` L${150+Math.cos(t)*rr} ${200+Math.sin(t)*rr*.9}`; } g+=`<path d="${d}" fill="none" stroke="${b}" opacity=".75"/>`;
+    g+=`<circle cx="150" cy="200" r="10" fill="${c}"/><circle cx="150" cy="200" r="22" fill="none" stroke="${c}"/>`;
+  } else if(ep.art==="signal"){
+    for(let k=0;k<7;k++){ g+=`<path d="M${150-30-k*20} ${170-k*14} Q150 ${120-k*24} ${150+30+k*20} ${170-k*14}" fill="none" stroke="${k%2?b:a}" stroke-width="2" opacity="${1-k*.12}"/>`; }
+    for(let k=0;k<5;k++){ const x=50+k*50, y=300+(r()-.5)*40; g+=`<circle cx="${x}" cy="${y}" r="16" fill="none" stroke="${c}"/><circle cx="${x}" cy="${y}" r="5" fill="${c}"/>`; }
+    g+=`<circle cx="150" cy="190" r="12" fill="${a}"/>`;
+  }
+  if(ep.art==="doc"){
+    g+=`<rect x="80" y="70" width="140" height="190" fill="#121524" stroke="${b}" stroke-opacity=".7"/><path d="M190 70 v30 h30" fill="none" stroke="${b}" stroke-opacity=".7"/>`;
+    for(let k=0;k<7;k++) g+=`<rect x="98" y="${112+k*18}" width="${60+r()*44}" height="5" fill="#EEF1FA" opacity=".35"/>`;
+    g+=`<circle cx="210" cy="270" r="34" fill="${a}"/><path d="M194 270 l11 11 l21 -23" stroke="#0C0E17" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+  } else if(ep.art==="funnel"){
+    for(let k=0;k<7;k++){ const w=240-k*30; g+=`<rect x="${150-w/2}" y="${70+k*30}" width="${w}" height="20" fill="${k<2?a:(k<5?b:c)}" opacity="${.9-k*.08}"/>`; }
+    for(let k=0;k<4;k++) g+=`<circle cx="150" cy="${300+k*24}" r="6" fill="${c}" opacity="${1-k*.2}"/>`;
+  } else if(ep.art==="radar"){
+    const N=6,R=100,cx=150,cy=200; for(let ring=1;ring<=4;ring++){ let d=""; for(let k=0;k<N;k++){ const an=-Math.PI/2+k*2*Math.PI/N, rr=R*ring/4; d+=(k?"L":"M")+(cx+Math.cos(an)*rr)+" "+(cy+Math.sin(an)*rr); } g+=`<path d="${d}Z" fill="none" stroke="${b}" stroke-opacity=".25"/>`; }
+    let d=""; for(let k=0;k<N;k++){ const an=-Math.PI/2+k*2*Math.PI/N, rr=R*(.45+r()*.5); d+=(k?"L":"M")+(cx+Math.cos(an)*rr)+" "+(cy+Math.sin(an)*rr); }
+    g+=`<path d="${d}Z" fill="${a}" fill-opacity=".35" stroke="${a}" stroke-width="2"/>`;
+  } else if(ep.art==="sync"){
+    g+=`<rect x="40" y="120" width="80" height="110" fill="#121524" stroke="${a}"/><rect x="180" y="120" width="80" height="110" fill="#121524" stroke="${b}"/>`;
+    for(let k=0;k<5;k++){ g+=`<rect x="52" y="${134+k*18}" width="56" height="6" fill="${a}" opacity=".5"/><rect x="192" y="${134+k*18}" width="56" height="6" fill="${b}" opacity=".5"/>`; }
+    g+=`<path d="M125 150 Q150 110 175 150" fill="none" stroke="${c}" stroke-width="3"/><path d="M168 142 l8 9 l-11 3" fill="none" stroke="${c}" stroke-width="3"/><path d="M175 200 Q150 240 125 200" fill="none" stroke="${c}" stroke-width="3" opacity=".5"/>`;
+    g+=`<text x="150" y="300" text-anchor="middle" font-family="monospace" font-size="22" fill="${c}">06:00</text>`;
+  } else if(ep.art==="merge"){
+    const ys=[100,190,280]; ys.forEach((y,k)=>{ g+=`<circle cx="60" cy="${y}" r="16" fill="none" stroke="${k===1?b:a}" stroke-width="2"/><path d="M76 ${y} C150 ${y} 150 190 214 190" fill="none" stroke="${k===1?b:a}" stroke-width="2" opacity=".8"/>`; });
+    g+=`<circle cx="236" cy="190" r="26" fill="${c}"/>`;
+  } else if(ep.art==="pulse"){
+    let d="M0 220"; for(let x=0;x<=300;x+=6){ const y=220+(x>120&&x<180?Math.sin((x-120)/60*Math.PI*4)*(70-(Math.abs(x-150))):Math.sin(x/9)*3); d+=` L${x} ${y}`; }
+    g+=`<path d="${d}" fill="none" stroke="${b}" stroke-width="2.5"/><circle cx="238" cy="120" r="16" fill="${a}"/><circle cx="238" cy="120" r="30" fill="none" stroke="${a}" opacity=".5"/>`;
+  }
+  return `<svg class="art" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${bg}${g}</svg>`;
+}
+
+const NCOL={"":"#7C87A8","a":"#4E8DFF","h":"#FF8A3D"};
+function flowSVG(nodes,big){
+  const W=big?900:300, H=big?150:116, pad=big?50:30, y=big?62:54, r=big?15:11, fs=big?14:10.5;
+  const n=nodes.length, step=(W-pad*2)/Math.max(1,n-1);
+  let g=`<line x1="${pad}" y1="${y}" x2="${W-pad}" y2="${y}" stroke="#3A4262" stroke-width="2" stroke-dasharray="3 6"/>`;
+  nodes.forEach(([lb,k],i)=>{ const x=pad+i*step, c=NCOL[k];
+    g+= k==="h" ? `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/>` : `<circle cx="${x}" cy="${y}" r="${r}" fill="#10131F" stroke="${c}" stroke-width="2"/>`;
+    if(k==="a") g+=`<circle cx="${x}" cy="${y}" r="${r*.38}" fill="${c}"/>`;
+    const up=!big && n>5 && i%2===1; g+=`<text x="${x}" y="${up?y-r-10:y+r+(big?26:22)}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="${fs}" fill="#9AA3BF">${lb}</text>`; });
+  if(!reduce) g+=`<circle cy="${y}" r="${big?5:4}" fill="#7CF5E4"><animate attributeName="cx" values="${pad};${W-pad}" dur="${big?6:4.5}s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.92;1" dur="${big?6:4.5}s" repeatCount="indefinite"/></circle>`;
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet" aria-hidden="true">${g}</svg>`;
+}
+const CATL={ia:"IA",auto:"automação",dados:"dados",chain:"blockchain",hard:"robótica e sistemas"};
+const shelves={rede:document.getElementById("shelfRede"),own:document.getElementById("shelfOwn")};
+EPS.forEach((ep,i)=>{
+  const b=document.createElement("button"); b.type="button"; b.className="pc"; b.dataset.open=i; b.dataset.cat=ep.cat.join(" ");
+  b.setAttribute("aria-label",`${ep.name}. ${ep.syn}`);
+  b.innerHTML=`<div class="pc-cv">${flowSVG(ep.nodes,false)}${ep.badge?`<span class="badge"></span>`:""}</div><div class="pc-bd"><p class="pc-lb"></p><h3></h3><p class="pc-d"></p><div class="pc-tg"></div></div>`;
+  if(ep.badge) b.querySelector(".badge").textContent=ep.badge;
+  b.querySelector(".pc-lb").textContent=ep.cat.map(c=>CATL[c]).join(" + ");
+  b.querySelector("h3").textContent=ep.name; b.querySelector(".pc-d").textContent=ep.syn;
+  const tg=b.querySelector(".pc-tg"); ep.stack.slice(0,3).forEach(t=>{ const sp=document.createElement("span"); sp.textContent=t; tg.appendChild(sp); });
+  shelves[ep.g].appendChild(b);
+});
+document.getElementById("pfilters").addEventListener("click",e=>{
+  const bt=e.target.closest("button"); if(!bt) return;
+  document.querySelectorAll("#pfilters button").forEach(x=>x.setAttribute("aria-pressed",String(x===bt)));
+  const f=bt.dataset.f;
+  document.querySelectorAll(".pc[data-open]").forEach(el=>{ el.hidden = !(f==="all" || el.dataset.cat.split(" ").includes(f)); });
+  document.querySelectorAll(".pgroup").forEach(gp=>{ gp.hidden = ![...gp.querySelectorAll(".pc[data-open]")].some(el=>!el.hidden); });
+});
+
+/* ======== e-mail do contas a pagar ======== */
+const MAIL=[
+  {k:"Solicitado",to:"Solicitante",pill:["Em análise do líder","#EEEAFE","#4A3AA8"],h:"Recebemos sua solicitação",t:"Olá, Ana. Sua solicitação de pagamento entrou no fluxo e está com o seu líder para análise de mérito. Você recebe um novo aviso a cada mudança de status.",f:[["Beneficiário","Fornecedor Exemplo Ltda"],["Solicitante","Ana Souza"],["Enviada em","10/09/2026"]],step:1},
+  {k:"Revisão Solicitante",to:"Solicitante",pill:["Precisa de ajustes","#FDE7E7","#B42323"],h:"Sua solicitação precisa de ajustes",t:"Sua solicitação voltou para sua revisão. Confira os comentários no Notion e ajuste o que for preciso. Quanto antes ajustar, antes o pagamento segue.",f:[["Beneficiário","Fornecedor Exemplo Ltda"],["Solicitante","Ana Souza"]],step:1},
+  {k:"Aprovado Líder",to:"Financeiro",pill:["Aprovado pelo líder","#E3F6EA","#1C7A43"],h:"Aprovado e liberado para o Financeiro",t:"Uma nova solicitação foi aprovada pelo líder e está liberada para programação.",f:[["Solicitante","Ana Souza"],["Beneficiário","Fornecedor Exemplo Ltda"],["Valor","R$ 1.250,00"],["Vencimento","25/09/2026"]],step:2},
+  {k:"Aguardando Nota Fiscal",to:"Líder",pill:["Aguardando NF","#FFF3D6","#8A5A00"],h:"Pagamento aguardando Nota Fiscal",t:"O pagamento para o fornecedor está aguardando o recebimento da Nota Fiscal. Acompanhe pelo Notion.",f:[["Beneficiário","Fornecedor Exemplo Ltda"],["Vencimento","25/09/2026"]],step:2},
+  {k:"A Pagar",to:"Financeiro, líder em cópia",pill:["Pronto para pagamento","#E3EEFF","#1E57C8"],h:"Pronto para pagamento",t:"O pagamento está apto para lançamento e pagamento, com vencimento previsto para 25/09/2026.",f:[["Beneficiário","Fornecedor Exemplo Ltda"],["Valor","R$ 1.250,00"],["Vencimento","25/09/2026"]],step:2},
+  {k:"Concluído",to:"Líder e solicitante",pill:["Pagamento concluído","#E3F6EA","#1C7A43"],h:"Pagamento concluído",t:"Boa notícia: o pagamento foi concluído, realizado e conciliado, sem pendências. Obrigado por seguir o fluxo direitinho!",f:[["Beneficiário","Fornecedor Exemplo Ltda"],["Solicitante","Ana Souza"]],step:3}
+];
+function mailHTML(m){
+  const steps=["Solicitação registrada","Análise do líder","Conferência do Financeiro e pagamento","Pagamento concluído"];
+  const tl=steps.map((st,i)=>`<li class="${i<m.step?"done":(i===m.step?"now":"")}"><i></i>${st}</li>`).join("");
+  const box=m.f.map(([k,v])=>`<div><dt>${k.toUpperCase()}</dt><dd>${v}</dd></div>`).join("");
+  return `<div class="mail"><div class="mh"><div><b>REDE+</b><small>GRUPO REDE MAIS</small></div><span>CONTAS A PAGAR</span></div>
+  <div class="mb"><div class="mtop"><span class="num">SOLICITAÇÃO Nº128</span><span class="pill" style="background:${m.pill[1]};color:${m.pill[2]}">${m.pill[0]}</span></div>
+  <h4>${m.h}</h4><p class="txt">${m.t}</p><dl class="box">${box}</dl>
+  <span class="cta">Abrir a solicitação no Notion</span><p class="alt">Se o botão não funcionar, copie o link da solicitação.</p>
+  <div class="tl"><p>O QUE ACONTECE AGORA</p><ul>${tl}</ul></div></div>
+  <div class="mf">Você recebeu este aviso porque participa desta despesa no fluxo de Contas a Pagar.<br>Mensagem automática do Grupo Rede+. Não responda a este e-mail.</div></div>`;
+}
+function mailSection(){
+  const sec=document.createElement("div"); sec.className="mail-sec";
+  sec.innerHTML='<h3>O e-mail que chega</h3><p class="sub">Um único modelo com a identidade da marca, que muda cor, título e etapas conforme o status. Clique para ver cada aviso.</p><div class="mail-tabs" role="group" aria-label="Status do e-mail"></div><div class="mail-wrap"><p class="mail-meta"></p><div class="mail-slot"></div></div><p class="mail-note">dados fictícios, só para demonstração</p>';
+  const tabs=sec.querySelector(".mail-tabs"), slot=sec.querySelector(".mail-slot"), meta=sec.querySelector(".mail-meta");
+  function show(i){ const m=MAIL[i]; tabs.querySelectorAll("button").forEach((b,k)=>b.setAttribute("aria-pressed",String(k===i)));
+    meta.innerHTML=`<span>Para: <b>${m.to}</b></span><span>Assunto: <b>[Contas a Pagar Rede+] Solicitação nº128: ${m.h.toLowerCase()}</b></span>`;
+    slot.innerHTML=mailHTML(m); if(!reduce) slot.animate([{opacity:0},{opacity:1}],{duration:220}); }
+  MAIL.forEach((m,i)=>{ const b=document.createElement("button"); b.type="button"; b.textContent=m.k; b.addEventListener("click",()=>show(i)); tabs.appendChild(b); });
+  show(0); return sec;
+}
+
+/* ======== player ======== */
+const player=document.getElementById("player"); let cur=0, lastFocus=null;
+const KIND={"":"automação","a":"IA","h":"decisão humana"};
+function el(tag,cls,txt){ const e=document.createElement(tag); if(cls) e.className=cls; if(txt!==undefined) e.textContent=txt; return e; }
+function openEp(i, trigger){
+  cur=(i+EPS.length)%EPS.length; if(trigger) lastFocus=trigger;
+  const ep=EPS[cur];
+  document.getElementById("pArt").innerHTML=""; document.getElementById("pFlow").innerHTML=flowSVG(ep.nodes,true);
+  const meta=document.getElementById("pMeta"); meta.innerHTML="";
+  const tg=el("span","tag",ep.origin); meta.appendChild(tg);
+  if(ep.period) meta.appendChild(el("span","",ep.period));
+  if(ep.badge) meta.appendChild(el("span","hope",ep.badge));
+  document.getElementById("pTitle").textContent=ep.name;
+  document.getElementById("pLog").textContent=ep.lead;
+  const main=document.getElementById("pMain"); main.innerHTML="";
+  const pr=el("div","pb"); pr.append(el("p","vt","PROBLEMA"),el("p","",ep.problem));
+  const so=el("div","pb hope"); so.append(el("p","vt","SOLUÇÃO"),el("p","",ep.solution));
+  const ps=el("div","ps"); ps.append(pr,so);
+  const fl=el("div","sec"); fl.appendChild(el("h3","","Como funciona"));
+  const ol=el("ol","flow"); ep.steps.forEach(([t,k])=>{ const li=el("li",k?("k-"+k):"k-auto"); li.append(el("span","st",t),el("span","kd",KIND[k])); ol.appendChild(li); });
+  fl.appendChild(ol);
+  const dc=el("div","sec"); dc.appendChild(el("h3","","Decisões técnicas"));
+  const ul=el("ul","dec"); ep.decisions.forEach(t=>ul.appendChild(el("li","",t))); dc.appendChild(ul);
+  main.append(ps,fl);
+  if(ep.email) main.appendChild(mailSection());
+  main.appendChild(dc);
+  const side=document.getElementById("pSide"); side.innerHTML="";
+  const fi=el("dl","ficha");
+  [["papel",ep.role],["status",ep.status],["período",ep.period]].forEach(([k,v])=>{ if(!v) return; const d=el("div"); d.append(el("dt","",k),el("dd","",v)); fi.appendChild(d); });
+  side.append(el("h4","","FICHA"),fi,el("h4","","RESULTADOS"));
+  const rs=el("ul","res"); ep.results.forEach(t=>rs.appendChild(el("li","",t))); side.appendChild(rs);
+  side.appendChild(el("h4","","FERRAMENTAS"));
+  const ch=el("div","chips"); ep.stack.forEach(t=>ch.appendChild(el("span","",t))); side.appendChild(ch);
+  if(ep.site){ const w=el("a","btn play","Visitar o site"); w.href=ep.site; w.target="_blank"; w.rel="noopener"; w.style.marginRight="8px"; w.style.marginBottom="8px"; side.appendChild(w); }
+  if(ep.link){ const a=el("a","btn","Ver o código no GitHub"); a.href=ep.link; a.target="_blank"; a.rel="noopener"; side.appendChild(a); }
+  else if(ep.g==="rede"){ side.appendChild(el("p","note","Projeto interno: código, dados e documentação ficam no ambiente da empresa.")); }
+  player.scrollTop=0; player.classList.add("open"); player.setAttribute("aria-hidden","false"); document.body.classList.add("locked");
+  setTimeout(()=>document.getElementById("pClose").focus(),50);
+}
+function closeEp(){ player.classList.remove("open"); player.setAttribute("aria-hidden","true"); document.body.classList.remove("locked"); if(lastFocus) lastFocus.focus(); }
+document.addEventListener("click",e=>{ const t=e.target.closest("[data-open]"); if(t) openEp(+t.dataset.open,t); });
+document.getElementById("pClose").addEventListener("click",closeEp);
+document.getElementById("pPrev").addEventListener("click",()=>openEp(cur-1));
+document.getElementById("pNext").addEventListener("click",()=>openEp(cur+1));
+document.addEventListener("keydown",e=>{
+  if(!player.classList.contains("open")) return;
+  if(e.key==="Escape") closeEp();
+  if(e.key==="ArrowRight") openEp(cur+1);
+  if(e.key==="ArrowLeft") openEp(cur-1);
+});
+
+/* ======== sobre: experiência ======== */
+const XP=[
+  {co:"Grupo Rede+",role:"Analista de Inteligência de Processos e IA",when:"06/2026 a atual",where:"Salvador, BA (remoto)",
+   b:["Mapeamento e modelagem de fluxos de processos de ponta a ponta (As-Is / To-Be), com foco em eficiência operacional.","Automações em Python e ferramentas low-code que substituem processos manuais baseados em planilhas.","Dashboards, relatórios e KPIs para apoiar a tomada de decisão.","Integração entre sistemas via APIs e redução de ferramentas duplicadas e custos de licenciamento.","Referência interna de IA, com o Claude como assistente oficial da empresa."],
+   t:["Python","Power Automate","Notion","Excel","APIs","Git","Claude"]},
+  {co:"Quantum Cert",role:"Founding Team e Head of Blockchain",when:"04/2026 a atual",where:"Rio de Janeiro, RJ (remoto)",
+   b:["Engenharia de smart contracts em Rust para tokenização de ativos e certificação digital.","Arquitetura de RWA (Real World Assets): infraestrutura on-chain para lastro e rastreabilidade de ativos físicos.","Protocolos criptográficos com segurança pós-quântica.","Definição do roadmap tecnológico, escolha de stacks e planejamento de interoperabilidade entre redes.","Testes unitários e de integração para mitigar vulnerabilidades em Web3."],
+   t:["Rust","Smart contracts","RWA","Criptografia pós-quântica"]},
+  {co:"Braskem",role:"Analista de Automação de Processos (estágio)",when:"08/2025 a 03/2026",where:"Salvador, BA (híbrido)",
+   b:["Fluxos automatizados com Power Automate, Power Apps e VBA em processos críticos, reduzindo trabalho manual e erros em larga escala.","Arquitetura de dados e dashboards em Power BI e Excel para as Vice-Presidências de Finanças, TI e Investimentos.","Jornada digital de onboarding, automatizando admissão e offboarding.","Administração de ambientes SharePoint com foco em arquitetura da informação e usabilidade.","Suporte a ERP via plataforma Connect, garantindo o fluxo de dados entre TI e RH."],
+   t:["Power Automate","Power Apps","VBA","Power BI","SharePoint","ERP"]},
+  {co:"SENAI CIMATEC",role:"Técnico em Robótica e Automação (estágio)",when:"05/2024 a 02/2025",where:"Salvador, BA (presencial)",
+   b:["Desenvolvimento e depuração de lógica de controle para CLPs em ambientes industriais de tempo real.","Manutenção preventiva e diagnóstico de falhas em braços robóticos ABB e KUKA.","Testes de estresse e funcionalidade (QA) em equipamentos laboratoriais.","Termos de Referência e documentação técnica de processos."],
+   t:["CLP","Ladder","Robótica ABB","Robótica KUKA","QA"]},
+  {co:"Garotas 4.0",role:"Mentora de Tecnologia, SENAI CIMATEC",when:"04/2023 a 04/2024",where:"Salvador, BA (híbrido)",
+   b:["Coordenação de workshops, palestras e capacitações em tecnologia.","Mentoria técnica e comportamental para o mercado de Tecnologia 4.0.","Criação de conteúdos teóricos e práticos adaptados a diferentes níveis."],
+   t:["Mentoria","Capacitação","Tecnologia 4.0"]},
+  {co:"SESI Bahia",role:"Pesquisadora em Automação e Sistemas Inteligentes (aprendiz)",when:"01/2020 a 12/2021",where:"Salvador, BA (presencial)",
+   b:["Pesquisa aplicada em robótica e sistemas inteligentes para otimização de processos.","Protótipos funcionais e provas de conceito de software e hardware para desafios da indústria.","Interface entre indústria e academia, traduzindo necessidades em soluções."],
+   t:["Robótica","Prototipagem","Pesquisa aplicada"]}
+];
+const xpList=document.getElementById("xpList"), xpPane=document.getElementById("xpPane");
+function showXp(i){
+  [...xpList.children].forEach((b,k)=>{ b.setAttribute("aria-selected",String(k===i)); b.tabIndex=k===i?0:-1; });
+  const x=XP[i]; xpPane.innerHTML="";
+  const h=document.createElement("p"); h.className="role"; h.textContent=x.role;
+  const m=document.createElement("p"); m.className="meta"; m.innerHTML="<b></b>  |  <span></span>"; m.querySelector("b").textContent=x.when; m.querySelector("span").textContent=x.where;
+  const ul=document.createElement("ul"); x.b.forEach(t=>{ const li=document.createElement("li"); li.textContent=t; ul.appendChild(li); });
+  const tl=document.createElement("div"); tl.className="tools"; x.t.forEach(t=>{ const sp=document.createElement("span"); sp.textContent=t; tl.appendChild(sp); });
+  xpPane.append(h,m,ul,tl);
+  if(!reduce) xpPane.animate([{opacity:0,transform:"translateY(6px)"},{opacity:1,transform:"none"}],{duration:260,easing:"ease-out"});
+}
+XP.forEach((x,i)=>{
+  const b=document.createElement("button"); b.type="button"; b.setAttribute("role","tab"); b.innerHTML="<b></b><span></span>";
+  b.querySelector("b").textContent=x.co; b.querySelector("span").textContent=x.when;
+  b.addEventListener("click",()=>showXp(i));
+  b.addEventListener("keydown",e=>{ let n=null; if(e.key==="ArrowDown"||e.key==="ArrowRight") n=(i+1)%XP.length; if(e.key==="ArrowUp"||e.key==="ArrowLeft") n=(i-1+XP.length)%XP.length; if(n!==null){ e.preventDefault(); showXp(n); xpList.children[n].focus(); } });
+  xpList.appendChild(b);
+});
+showXp(0);
+
+/* ======== sobre: competências ======== */
+const SK=[
+  {t:"Automação e RPA",k:"automacao/",core:["Power Automate","Python","Power Apps"],o:["VBA","Low-code","Integração via API","BPMN","As-Is / To-Be"]},
+  {t:"Dados e BI",k:"dados/",core:["Power BI","Excel avançado"],o:["SQL Server","Modelagem de dados","KPIs e dashboards","Governança de dados"]},
+  {t:"Linguagens",k:"lang/",core:["Python","Rust"],o:["C","SQL","JavaScript","Ladder","Código G"]},
+  {t:"Blockchain e Web3",k:"web3/",core:["Smart contracts em Rust"],o:["Tokenização (RWA)","Criptografia pós-quântica","Interoperabilidade","Testes unitários e de integração"]},
+  {t:"IA aplicada",k:"ia/",core:["Agentes de IA","Claude"],o:["Machine learning","Deep learning","TensorFlow","MindSpore"]},
+  {t:"Ferramentas e plataformas",k:"tools/",core:["Git","Notion","Microsoft 365"],o:["SharePoint","Visual Studio","VirtualBox","ERP Connect","Windows, Linux e Android"]}
+];
+const skBox=document.getElementById("skills");
+SK.forEach(g=>{
+  const d=document.createElement("div"); d.className="skill";
+  d.innerHTML='<div class="hd"><h3></h3><span></span></div><ul></ul>';
+  d.querySelector("h3").textContent=g.t; d.querySelector(".hd span").textContent=g.k;
+  const ul=d.querySelector("ul");
+  g.core.forEach(x=>{ const li=document.createElement("li"); li.className="core"; li.textContent=x; ul.appendChild(li); });
+  g.o.forEach(x=>{ const li=document.createElement("li"); li.textContent=x; ul.appendChild(li); });
+  skBox.appendChild(d);
+});
+
+/* ======== sobre: fora do terminal ======== */
+const OFF=[
+  {k:"salvador.jpg",t:"Salvador",p:"Praia, música baiana e pôr do sol. É assim que eu reinicio o sistema.",svg:`<rect width="300" height="180" fill="#120E24"/><circle cx="150" cy="118" r="54" fill="#FF8A3D"/><circle cx="150" cy="118" r="80" fill="#FF8A3D" opacity=".15"/><rect y="118" width="300" height="62" fill="#0C0E17"/>${[0,1,2,3,4,5].map(i=>`<path d="M0 ${126+i*9} Q75 ${120+i*9} 150 ${126+i*9} T300 ${126+i*9}" stroke="${i<2?"#FF8A3D":"#4E8DFF"}" stroke-opacity="${.8-i*.12}" fill="none"/>`).join("")}`},
+  {k:"games.exe",t:"Games",p:"Gosto de fase difícil. No controle e fora dele.",svg:(()=>{const G=["............","..########..",".##########.","#XX#####O###","#XX###O#O###",".##########.","..###..###.."];let o='<rect width="300" height="180" fill="#0C0E17"/><g transform="translate(66 34) scale(.56)">';G.forEach((r,y)=>[...r].forEach((ch,x)=>{const col=ch==="#"?"#B58CFF":ch==="X"?"#7CF5E4":ch==="O"?"#FF8A3D":"#141829";if(ch!==".")o+=`<rect x="${x*25+1}" y="${y*25+3}" width="23" height="23" fill="${col}"/>`;}));return o+"</g>";})()},
+  {k:"sci-fi.md",t:"Ficção científica",p:"Ela me lembra da pergunta que guia meu trabalho: essa tecnologia está a favor de quem?",svg:`<rect width="300" height="180" fill="#06070C"/><ellipse cx="150" cy="90" rx="110" ry="46" fill="none" stroke="#7CF5E4" stroke-opacity=".6"/><circle cx="150" cy="90" r="34" fill="#0C0E17" stroke="#7CF5E4"/><circle cx="150" cy="90" r="14" fill="#FF4B3E"/>${[0,1,2,3,4,5,6,7].map(i=>`<rect x="0" y="${14+i*20}" width="300" height="2" fill="#7CF5E4" opacity=".05"/>`).join("")}<rect x="40" y="86" width="220" height="3" fill="#FF4B3E" opacity=".5"/>`}
+];
+const off=document.getElementById("offline");
+OFF.forEach(o=>{ const d=document.createElement("article"); d.className="tile"; d.innerHTML=`<div class="vis"><svg viewBox="0 0 300 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${o.svg}</svg></div><div class="tx"><span></span><h3></h3><p></p></div>`; d.querySelector(".tx span").textContent=o.k; d.querySelector("h3").textContent=o.t; d.querySelector("p").textContent=o.p; off.appendChild(d); });
+
+/* ======== editor ======== */
+const FILES={
+ "milena.ts":{lang:"ts",src:`// quem eu sou, em código
+type Decisao = "maquina" | "pessoa";
+
+const milena = {
+  foco: ["IA", "automação", "blockchain"],
+  stack: ["Python", "Rust", "Power Platform"],
+  atuacao: {
+    "Grupo Rede+": "Process Intelligence e IA",
+    "Quantum Cert": "Head of Blockchain",
+  },
+  formacao: ["Mecatrônica", "Eng. da Computação"],
+  premios: ["1º lugar UNICEF Youth Challenge"],
+  regra: (tarefa): Decisao =>
+    tarefa.repetitiva ? "maquina" : "pessoa",
+};
+
+export default milena;`},
+ "agentes.py":{lang:"py",src:`# rotina diária da central de editais
+from agentes import Garimpeiro, Extrator
+from agentes import Avaliador, Monitor
+
+def rotina_diaria(base):
+    editais = Garimpeiro().buscar()
+    for edital in editais:
+        dados = Extrator().ler(edital)
+        nota = Avaliador().avaliar(dados)
+        # a IA avalia, mas a prioridade é humana
+        base.salvar(dados, nota, status="Novo",
+                    prioridade=None)
+    Monitor().vigiar_prazos(base)`},
+ "painel.yml":{lang:"yml",src:`# atualiza os painéis de desempenho
+name: painel-de-desempenho
+on:
+  schedule:
+    - cron: "0 9 * * *"   # 6h da manhã no Brasil
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - run: python exportar.py
+      - run: echo "farol do mês atualizado"`}
+};
+const KW={ts:/\b(type|const|export|default|return|import|from)\b/,py:/\b(from|import|def|for|in|return|None)\b/,yml:/^$/};
+function tokenize(src,lang){
+  const out=[]; const re=lang==="py"||lang==="yml"?/(#[^\n]*)|("[^"\n]*")|(\b\d+\b)|([A-Za-z_][\w]*)|(\s+)|([^\w\s])/g:/(\/\/[^\n]*)|("[^"\n]*")|(\b\d+\b)|([A-Za-z_][\w]*)|(\s+)|([^\w\s])/g;
+  let m; while((m=re.exec(src))){
+    if(m[1]) out.push(["c",m[1]]); else if(m[2]) out.push(["s",m[2]]); else if(m[3]) out.push(["n",m[3]]);
+    else if(m[4]){ const w=m[4]; const next=src[re.lastIndex]; out.push([KW[lang].test(w)?"k":(next==="("?"f":(lang==="yml"&&next===":"?"k":"p")),w]); }
+    else out.push(["",m[5]||m[6]]);
+  }
+  return out;
+}
+const esc=t=>t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const cwSrc=document.getElementById("cwSrc"), cwLn=document.getElementById("cwLn"), cwTabs=document.getElementById("cwTabs");
+let typeTimer=null;
+function paint(tokens,n,withCaret){
+  let html="",count=0;
+  for(const [c,t] of tokens){ if(count>=n) break; const part=t.slice(0,n-count); count+=part.length; html+=c?`<span class="tk-${c}">${esc(part)}</span>`:esc(part); }
+  cwSrc.innerHTML=html+(withCaret?'<span class="caret"></span>':"");
+  const lines=(html.match(/\n/g)||[]).length+1; cwLn.textContent=Array.from({length:lines},(_,i)=>i+1).join("\n");
+  const box=cwSrc.parentElement; if(withCaret) box.scrollTop=box.scrollHeight;
+}
+function openFile(name){
+  [...cwTabs.children].forEach(b=>{ const on=b.dataset.f===name; b.setAttribute("aria-selected",String(on)); b.tabIndex=on?0:-1; });
+  const f=FILES[name], tokens=tokenize(f.src,f.lang), total=f.src.length;
+  clearInterval(typeTimer); cwSrc.parentElement.scrollTop=0;
+  if(reduce){ paint(tokens,total,false); return; }
+  let n=0; typeTimer=setInterval(()=>{ n+=3; paint(tokens,n,n<total); if(n>=total) clearInterval(typeTimer); },16);
+}
+Object.keys(FILES).forEach(name=>{ const b=document.createElement("button"); b.type="button"; b.setAttribute("role","tab"); b.dataset.f=name; b.textContent=name; b.addEventListener("click",()=>openFile(name)); cwTabs.appendChild(b); });
+
+/* background code texture */
+document.getElementById("codebg").textContent=Object.values(FILES).map(f=>f.src).join("\n\n").repeat(2);
+
+/* ======== terminal ======== */
+const termOut=document.getElementById("termOut"), termIn=document.getElementById("termIn");
+const history=[]; let hIdx=0;
+function print(txt,cls){ const d=document.createElement("div"); if(cls) d.className=cls; d.textContent=txt; termOut.appendChild(d); termOut.scrollTop=termOut.scrollHeight; }
+const CMDS={
+  help:()=>print("comandos: whoami, projetos, sobre, stack, premios, contato, email, github, linkedin, clear"),
+  whoami:()=>print("Milena Calasans. IA, automação de processos e blockchain. Ousada, competitiva e sempre inventando alguma coisa.","ok"),
+  projetos:()=>{ print("abrindo projetos...","ok"); location.hash="#/projetos"; },
+  sobre:()=>{ print("abrindo sobre...","ok"); location.hash="#/sobre"; },
+  stack:()=>print("linguagens: Python, Rust, SQL, C, JavaScript\nautomação: Power Automate, Power Apps, VBA\ndados: Power BI, Excel avançado, SQL Server\nweb3: smart contracts em Rust, RWA"),
+  premios:()=>print("1º lugar UNICEF Youth Challenge Blockchain 2026 | Google Student Ambassador 2026 | HCIA-AI Huawei","ok"),
+  contato:()=>{ print("e-mail: milena.lcalasans@gmail.com\ntelefone: (71) 98423-3923\nlinkedin: linkedin.com/in/milenacalasans\ngithub: github.com/iMilena","ok"); },
+  email:()=>{ print("abrindo milena.lcalasans@gmail.com","ok"); location.href="mailto:milena.lcalasans@gmail.com"; },
+  github:()=>{ print("abrindo github.com/iMilena","ok"); window.open("https://github.com/iMilena","_blank","noopener"); },
+  linkedin:()=>{ print("abrindo linkedin.com/in/milenacalasans","ok"); window.open("https://www.linkedin.com/in/milenacalasans/","_blank","noopener"); },
+  clear:()=>{ termOut.innerHTML=""; },
+  sudo:()=>print("permissão negada: aqui quem decide são as pessoas.","err")
+};
+function run(raw){
+  const cmd=raw.trim().toLowerCase(); if(!cmd) return;
+  history.push(cmd); hIdx=history.length;
+  print("$ "+cmd,"cmd");
+  const key=cmd.split(/\s+/)[0];
+  if(CMDS[key]) CMDS[key](); else print(`comando não encontrado: ${key}. Digite help.`,"err");
+}
+termIn.addEventListener("keydown",e=>{
+  if(e.key==="Enter"){ run(termIn.value); termIn.value=""; }
+  else if(e.key==="ArrowUp"){ if(hIdx>0){ hIdx--; termIn.value=history[hIdx]; } e.preventDefault(); }
+  else if(e.key==="ArrowDown"){ if(hIdx<history.length-1){ hIdx++; termIn.value=history[hIdx]; } else { hIdx=history.length; termIn.value=""; } e.preventDefault(); }
+  else if(e.key==="Tab"){ const v=termIn.value.trim().toLowerCase(); const m=Object.keys(CMDS).filter(k=>k.startsWith(v)); if(v&&m.length===1){ termIn.value=m[0]; e.preventDefault(); } }
+});
+document.querySelectorAll("[data-cmd]").forEach(b=>b.addEventListener("click",()=>{ run(b.dataset.cmd); termIn.focus({preventScroll:true}); }));
+print("digite help para ver os comandos");
+
+/* ======== contato: copiar ======== */
+document.querySelectorAll(".ct-copy").forEach(b=>b.addEventListener("click",async()=>{
+  const t=document.getElementById("ctToast"), v=b.dataset.copy;
+  try{ await navigator.clipboard.writeText(v); t.textContent="copiado: "+v; b.textContent="Copiado"; setTimeout(()=>b.textContent="Copiar",1800); }
+  catch(e){ t.textContent="não deu para copiar automaticamente: "+v; }
+}));
+
+/* ======== router ======== */
+const PAGES={home:"Milena Calasans | Portfólio",projetos:"Projetos | Milena Calasans",sobre:"Sobre mim | Milena Calasans",contato:"Contato | Milena Calasans"};
+function route(){
+  let r=(location.hash.replace(/^#\/?/,"")||"home").split("/")[0]; if(!PAGES[r]) r="home";
+  document.querySelectorAll(".page").forEach(pg=>{ pg.hidden = pg.dataset.page!==r; });
+  document.querySelectorAll("[data-nav]").forEach(a=>{ const on=a.dataset.nav===r; a.classList.toggle("on",on); if(on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  document.title=PAGES[r];
+  if(player.classList.contains("open")) closeEp();
+  window.scrollTo(0,0);
+  const pg=document.querySelector(`.page[data-page="${r}"]`);
+  if(!reduce) pg.animate([{opacity:0,transform:"translateY(14px)"},{opacity:1,transform:"none"}],{duration:450,easing:"cubic-bezier(.2,.8,.2,1)"});
+  nav.classList.toggle("solid", r!=="home" || scrollY>40);
+}
+addEventListener("hashchange",route);
+
+/* ======== nav ======== */
+const nav=document.getElementById("nav");
+addEventListener("scroll",()=>nav.classList.toggle("solid",scrollY>40 || document.querySelector('.page[data-page="home"]').hidden),{passive:true});
+route();
+
+/* ======== cold open ======== */
+const boot=document.getElementById("boot");
+function endBoot(){ openFile("milena.ts"); boot.classList.add("gone"); document.body.classList.remove("locked"); try{ sessionStorage.setItem("mc-seen","1"); }catch(e){} setTimeout(()=>boot.remove(),1000); }
+document.getElementById("watch").addEventListener("click",endBoot);
+let seen=false; try{ seen=sessionStorage.getItem("mc-seen")==="1"; }catch(e){}
+if(seen){ boot.remove(); document.body.classList.remove("locked"); openFile("milena.ts"); }
+else {
+  const lines=[...document.querySelectorAll("#bootLines div")], step=reduce?80:900;
+  lines.forEach((l,i)=>setTimeout(()=>l.classList.add("on"),300+i*step));
+  const t0=300+lines.length*step+200;
+  setTimeout(()=>document.getElementById("bootTitle").classList.add("on"),t0);
+  setTimeout(()=>document.getElementById("bootBy").classList.add("on"),t0+(reduce?50:1200));
+  setTimeout(()=>{ document.getElementById("bootGo").classList.add("on"); document.getElementById("watch").focus(); },t0+(reduce?80:1700));
+  addEventListener("keydown",e=>{ if(document.body.contains(boot) && !boot.classList.contains("gone") && (e.key==="Enter"||e.key===" "||e.key==="Escape")){ e.preventDefault(); endBoot(); } });
+}
+</script>
+</body>
+</html>
