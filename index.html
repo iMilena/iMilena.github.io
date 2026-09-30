@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="i18n.js"></script>
 <style>
 :root{
   --void:#06070C; --deep:#0C0E17; --panel:#121524; --line:rgba(220,230,255,.12); --line-2:rgba(220,230,255,.22);
@@ -78,6 +79,15 @@ button{font:inherit;color:inherit}
 .page .block,.page .credits{min-height:100vh;padding-top:130px}
 .live{display:inline-flex;align-items:center;gap:8px;font-family:var(--hud);font-size:13px;color:var(--dim);letter-spacing:.08em}
 .live i{width:8px;height:8px;border-radius:50%;background:var(--hope-2);animation:pulse 1.6s infinite}
+.nav-r{display:flex;align-items:center;gap:18px}
+.lang-sel{appearance:none;-webkit-appearance:none;background:transparent url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M1 1l4 4 4-4' fill='none' stroke='%239AA3BF' stroke-width='1.5'/></svg>") no-repeat right 8px center;border:1px solid var(--line-2);border-radius:2px;color:var(--ink);font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;padding:5px 24px 5px 9px;cursor:pointer}
+.lang-sel:hover{border-color:var(--hope)}
+.lang-sel option{background:var(--deep);color:var(--ink)}
+.boot-lang{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));right:clamp(16px,4vw,40px);display:flex;border:1px solid var(--line-2)}
+.boot-lang button{background:transparent;border:0;border-right:1px solid var(--line-2);color:var(--dim);font-family:var(--mono);font-size:12.5px;padding:6px 11px;cursor:pointer}
+.boot-lang button:last-child{border-right:0}
+.boot-lang button:hover{color:var(--ink)}
+.boot-lang button[aria-pressed="true"]{background:var(--ink);color:var(--void)}
 @keyframes pulse{50%{opacity:.25}}
 
 /* ---------- hero ---------- */
@@ -409,6 +419,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .skills,.cols{grid-template-columns:minmax(0,1fr)}
   .roll{height:360px}
 }
+@media (max-width:420px){
+  .nav nav{gap:12px;font-size:13px;letter-spacing:.02em}
+  .lang-sel{padding:4px 20px 4px 7px;background-position:right 6px center}
+}
+@media (max-width:360px){ .nav .wrap{padding:0 14px} }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   .grain,.roll .inner,.live i{animation:none}
@@ -422,29 +437,37 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <div class="scan" aria-hidden="true"></div>
 
 <!-- COLD OPEN -->
-<div class="boot" id="boot" role="dialog" aria-label="Abertura">
+<div class="boot" id="boot" role="dialog" aria-label="Abertura" data-i18n-attr="aria-label:boot.aria">
+  <div class="boot-lang" role="group" aria-label="Idioma" data-i18n-attr="aria-label:lang.aria">
+    <button type="button" data-lang="pt" lang="pt-BR" title="Português">PT</button><button type="button" data-lang="en" lang="en" title="English">EN</button><button type="button" data-lang="es" lang="es" title="Español">ES</button>
+  </div>
   <div class="lines" id="bootLines" aria-live="polite">
-    <div>&gt; carregando portfólio...</div>
-    <div>&gt; IA aplicada e automação de processos</div>
-    <div>&gt; blockchain e dados</div>
+    <div data-i18n="boot.l1">&gt; carregando portfólio...</div>
+    <div data-i18n="boot.l2">&gt; IA aplicada e automação de processos</div>
+    <div data-i18n="boot.l3">&gt; blockchain e dados</div>
     <div class="cur">&gt; Salvador, Bahia</div>
   </div>
-  <div class="title" id="bootTitle">PORTFÓLIO</div>
+  <div class="title" id="bootTitle" data-i18n="brand.portfolio">PORTFÓLIO</div>
   <div class="by" id="bootBy">Milena Calasans</div>
   <div class="go" id="bootGo">
-    <button class="btn play" type="button" id="watch">Acessar</button>
+    <button class="btn play" type="button" id="watch" data-i18n="boot.go">Acessar</button>
   </div>
 </div>
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#/" aria-label="Milena Calasans, início"><b class="full">MILENA<i class="sl">/</i>CALASANS</b><b class="short">MC<i class="sl">/</i></b></a>
-    <nav aria-label="Seções">
-      <a href="#/projetos" data-nav="projetos">Projetos</a>
-      <a href="#/sobre" data-nav="sobre">Sobre mim</a>
-      <a href="#/contato" data-nav="contato">Contato</a>
+    <a class="brand" href="#/" aria-label="Milena Calasans, início" data-i18n-attr="aria-label:nav.home"><b class="full">MILENA<i class="sl">/</i>CALASANS</b><b class="short">MC<i class="sl">/</i></b></a>
+    <nav aria-label="Seções" data-i18n-attr="aria-label:nav.aria">
+      <a href="#/projetos" data-nav="projetos" data-i18n="nav.projetos">Projetos</a>
+      <a href="#/sobre" data-nav="sobre" data-i18n="nav.sobre">Sobre mim</a>
+      <a href="#/contato" data-nav="contato" data-i18n="nav.contato">Contato</a>
     </nav>
-    <span class="live"><i></i>ONLINE</span>
+    <div class="nav-r">
+      <span class="live"><i></i>ONLINE</span>
+      <select class="lang-sel" id="langSel" aria-label="Idioma" data-i18n-attr="aria-label:lang.aria">
+        <option value="pt" lang="pt-BR">PT</option><option value="en" lang="en">EN</option><option value="es" lang="es">ES</option>
+      </select>
+    </div>
   </div>
 </header>
 
@@ -456,22 +479,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="codebg" aria-hidden="true" id="codebg"></div>
     <div class="wrap hero-grid">
       <div>
-        <div class="meta-row"><span class="tag">PORTFÓLIO</span><span>13 projetos</span><span>IA, automação e blockchain</span></div>
+        <div class="meta-row"><span class="tag" data-i18n="brand.portfolio">PORTFÓLIO</span><span data-i18n="hero.count">13 projetos</span><span data-i18n="hero.areas">IA, automação e blockchain</span></div>
         <h1>MILENA<br>CALASANS</h1>
-        <p class="logline"><b>A máquina faz o repetitivo. As pessoas decidem.</b> Eu construo agentes de IA, automações e sistemas em blockchain que funcionam exatamente assim.</p>
+        <p class="logline" data-i18n="hero.logline"><b>A máquina faz o repetitivo. As pessoas decidem.</b> Eu construo agentes de IA, automações e sistemas em blockchain que funcionam exatamente assim.</p>
         <div class="actions">
-          <a class="btn play" href="#/projetos">Acessar projetos</a>
-          <a class="btn" href="#/sobre">Sobre mim</a>
+          <a class="btn play" href="#/projetos" data-i18n="hero.cta">Acessar projetos</a>
+          <a class="btn" href="#/sobre" data-i18n="nav.sobre">Sobre mim</a>
         </div>
       </div>
-      <div class="code-win" aria-label="Editor de código interativo">
+      <div class="code-win" aria-label="Editor de código interativo" data-i18n-attr="aria-label:editor.aria">
         <div class="cw-bar"><i></i><i></i><i></i><span>~/milena/portfolio</span></div>
         <div class="cw-tabs" role="tablist" id="cwTabs"></div>
         <div class="cw-code" id="cwCode"><div class="ln" id="cwLn"></div><div class="src" id="cwSrc"></div></div>
         <div class="term">
           <div class="term-out" id="termOut" aria-live="polite"></div>
-          <div class="term-row"><label for="termIn">milena@portfolio:~$</label><input id="termIn" autocomplete="off" spellcheck="false" placeholder="digite help"></div>
-          <div class="term-hint">Experimente: <button type="button" data-cmd="whoami">whoami</button><button type="button" data-cmd="projetos">projetos</button><button type="button" data-cmd="stack">stack</button><button type="button" data-cmd="contato">contato</button></div>
+          <div class="term-row"><label for="termIn">milena@portfolio:~$</label><input id="termIn" autocomplete="off" spellcheck="false" placeholder="digite help" data-i18n-attr="placeholder:term.ph"></div>
+          <div class="term-hint"><span data-i18n="term.try">Experimente:</span> <button type="button" data-cmd="whoami">whoami</button><button type="button" data-cmd="projects">projetos</button><button type="button" data-cmd="stack">stack</button><button type="button" data-cmd="contact">contato</button></div>
         </div>
       </div>
     </div>
@@ -482,22 +505,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <div class="page" data-page="projetos" hidden>
   <section class="block" id="episodios">
     <div class="wrap">
-      <p class="path">~/milena/<b>projetos</b></p>
+      <p class="path">~/milena/<b data-i18n="path.proj">projetos</b></p>
       <div class="sec-head">
-        <div><h2>Projetos</h2></div>
-        <p>Automações, agentes de IA e sistemas que eu construí. Abra um projeto para ver o problema, a solução, como funciona e as ferramentas usadas.</p>
+        <div><h2 data-i18n="nav.projetos">Projetos</h2></div>
+        <p data-i18n="proj.intro">Automações, agentes de IA e sistemas que eu construí. Abra um projeto para ver o problema, a solução, como funciona e as ferramentas usadas.</p>
       </div>
-      <div class="pfilters" id="pfilters" role="group" aria-label="Filtrar projetos">
-        <button type="button" data-f="all" aria-pressed="true">Todos</button>
-        <button type="button" data-f="ia" aria-pressed="false">IA e agentes</button>
-        <button type="button" data-f="auto" aria-pressed="false">Automação</button>
-        <button type="button" data-f="dados" aria-pressed="false">Dados</button>
+      <div class="pfilters" id="pfilters" role="group" aria-label="Filtrar projetos" data-i18n-attr="aria-label:proj.filter">
+        <button type="button" data-f="all" aria-pressed="true" data-i18n="f.all">Todos</button>
+        <button type="button" data-f="ia" aria-pressed="false" data-i18n="f.ia">IA e agentes</button>
+        <button type="button" data-f="auto" aria-pressed="false" data-i18n="f.auto">Automação</button>
+        <button type="button" data-f="dados" aria-pressed="false" data-i18n="f.dados">Dados</button>
         <button type="button" data-f="chain" aria-pressed="false">Blockchain</button>
-        <button type="button" data-f="hard" aria-pressed="false">Robótica e sistemas</button>
+        <button type="button" data-f="hard" aria-pressed="false" data-i18n="f.hard">Robótica e sistemas</button>
       </div>
-      <div class="flow-key" aria-label="Legenda das etapas"><span><i style="border:2px solid #7C87A8"></i>automação</span><span><i style="border:2px solid #4E8DFF;background:radial-gradient(#4E8DFF 35%,transparent 40%)"></i>IA</span><span><i style="background:#FF8A3D"></i>decisão humana</span></div>
-      <div class="pgroup"><div class="gh"><h3>Grupo Rede+</h3><span>automação de processos e IA em produção</span></div><div class="shelf" id="shelfRede"></div></div>
-      <div class="pgroup"><div class="gh"><h3>Projetos e hackathons</h3><span>blockchain, machine learning e robótica</span></div><div class="shelf" id="shelfOwn"></div></div>
+      <div class="flow-key" aria-label="Legenda das etapas" data-i18n-attr="aria-label:proj.legend"><span><i style="border:2px solid #7C87A8"></i><span data-i18n="kind.auto">automação</span></span><span><i style="border:2px solid #4E8DFF;background:radial-gradient(#4E8DFF 35%,transparent 40%)"></i><span data-i18n="kind.a">IA</span></span><span><i style="background:#FF8A3D"></i><span data-i18n="kind.h">decisão humana</span></span></div>
+      <div class="pgroup"><div class="gh"><h3>Grupo Rede+</h3><span data-i18n="g.rede">automação de processos e IA em produção</span></div><div class="shelf" id="shelfRede"></div></div>
+      <div class="pgroup"><div class="gh"><h3 data-i18n="g.own.h">Projetos e hackathons</h3><span data-i18n="g.own">blockchain, machine learning e robótica</span></div><div class="shelf" id="shelfOwn"></div></div>
     </div>
   </section>
 </div>
@@ -506,22 +529,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="wrap">
       <div class="intro">
         <div>
-          <p class="path">~/milena/<b>sobre</b></p>
-          <h1>Inteligência de processos, automação e blockchain.</h1>
+          <p class="path">~/milena/<b data-i18n="path.sobre">sobre</b></p>
+          <h1 data-i18n="sobre.h1">Inteligência de processos, automação e blockchain.</h1>
           <div class="sum">
-            <p>Sou <b>Analista de Inteligência de Processos e IA no Grupo Rede+</b> e <b>Head of Blockchain na Quantum Cert</b>. Mapeio e redesenho processos de ponta a ponta, desenvolvo automações com Python e Power Platform, construo dashboards em Power BI e integro sistemas via API.</p>
-            <p>Na frente de blockchain, desenvolvo smart contracts em Rust para tokenização de ativos e certificação digital, com criptografia pós-quântica. Meu foco é sempre o mesmo: eficiência, menos custo operacional e decisão baseada em dados.</p>
-            <p>Técnica em Mecatrônica pelo SENAI CIMATEC e estudante de Engenharia da Computação na UNIRUY.</p>
+            <p data-i18n="sobre.p1">Sou <b>Analista de Inteligência de Processos e IA no Grupo Rede+</b> e <b>Head of Blockchain na Quantum Cert</b>. Mapeio e redesenho processos de ponta a ponta, desenvolvo automações com Python e Power Platform, construo dashboards em Power BI e integro sistemas via API.</p>
+            <p data-i18n="sobre.p2">Na frente de blockchain, desenvolvo smart contracts em Rust para tokenização de ativos e certificação digital, com criptografia pós-quântica. Meu foco é sempre o mesmo: eficiência, menos custo operacional e decisão baseada em dados.</p>
+            <p data-i18n="sobre.p3">Técnica em Mecatrônica pelo SENAI CIMATEC e estudante de Engenharia da Computação na UNIRUY.</p>
           </div>
-          <div class="focus"><span>processos</span><span>automação-e-rpa</span><span>dados-e-bi</span><span>ia-aplicada</span><span>blockchain</span></div>
+          <div class="focus" data-i18n="sobre.focus"><span>processos</span><span>automação-e-rpa</span><span>dados-e-bi</span><span>ia-aplicada</span><span>blockchain</span></div>
         </div>
-        <aside class="facts" aria-label="Resumo">
+        <aside class="facts" aria-label="Resumo" data-i18n-attr="aria-label:sobre.facts">
           <dl>
-            <div><dt>base</dt><dd>Salvador, Bahia</dd></div>
-            <div><dt>modalidade</dt><dd>Remoto e híbrido</dd></div>
-            <div><dt>atuação atual</dt><dd>Grupo Rede+ e Quantum Cert</dd></div>
-            <div><dt>formação</dt><dd>Eng. da Computação (em curso) e técnica em Mecatrônica</dd></div>
-            <div><dt>idiomas</dt><dd>Português nativo, inglês intermediário, espanhol básico</dd></div>
+            <div><dt data-i18n="fact.base">base</dt><dd>Salvador, Bahia</dd></div>
+            <div><dt data-i18n="fact.mode">modalidade</dt><dd data-i18n="fact.mode.v">Remoto e híbrido</dd></div>
+            <div><dt data-i18n="fact.now">atuação atual</dt><dd data-i18n="fact.now.v">Grupo Rede+ e Quantum Cert</dd></div>
+            <div><dt data-i18n="fact.edu">formação</dt><dd data-i18n="fact.edu.v">Eng. da Computação (em curso) e técnica em Mecatrônica</dd></div>
+            <div><dt data-i18n="fact.langs">idiomas</dt><dd data-i18n="fact.langs.v">Português nativo, inglês intermediário, espanhol básico</dd></div>
           </dl>
           <div class="cta">
             <a class="btn play" href="https://www.linkedin.com/in/milenacalasans/" target="_blank" rel="noopener">LinkedIn</a>
@@ -531,43 +554,43 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       </div>
 
       <div class="about-sec">
-        <div class="ttl"><h2><span class="n">01</span>Experiência</h2><p>Selecione uma empresa para ver o que fiz.</p></div>
+        <div class="ttl"><h2 data-i18n="sec.xp"><span class="n">01</span>Experiência</h2><p data-i18n="sec.xp.p">Selecione uma empresa para ver o que fiz.</p></div>
         <div class="xp">
-          <div class="xp-list" role="tablist" aria-label="Experiências" id="xpList"></div>
+          <div class="xp-list" role="tablist" aria-label="Experiências" data-i18n-attr="aria-label:sec.xp.aria" id="xpList"></div>
           <div class="xp-pane" id="xpPane" role="tabpanel" aria-live="polite"></div>
         </div>
       </div>
 
       <div class="about-sec">
-        <div class="ttl"><h2><span class="n">02</span>Competências técnicas</h2><p>Ferramentas e linguagens que uso no dia a dia.</p></div>
+        <div class="ttl"><h2 data-i18n="sec.sk"><span class="n">02</span>Competências técnicas</h2><p data-i18n="sec.sk.p">Ferramentas e linguagens que uso no dia a dia.</p></div>
         <div class="skills" id="skills"></div>
-        <p class="skills-key"><i></i>uso principal</p>
+        <p class="skills-key" data-i18n="sk.key"><i></i>uso principal</p>
       </div>
 
       <div class="about-sec">
-        <div class="ttl"><h2><span class="n">03</span>Formação e reconhecimentos</h2></div>
+        <div class="ttl"><h2 data-i18n="sec.edu"><span class="n">03</span>Formação e reconhecimentos</h2></div>
         <div class="cols">
-          <div class="col"><h3>formação</h3>
-            <div class="item"><b>Engenharia da Computação</b><span>Centro Universitário Ruy Barbosa (UNIRUY)</span><small>bacharelado, em curso</small></div>
-            <div class="item"><b>Técnico em Mecatrônica</b><span>SENAI CIMATEC</span><small>concluído em 2023</small></div>
-            <div class="item"><b>Ensino Médio</b><span>SESI Salvador</span><small>concluído em 2021</small></div>
+          <div class="col"><h3 data-i18n="edu.h">formação</h3>
+            <div class="item" data-i18n="edu1"><b>Engenharia da Computação</b><span>Centro Universitário Ruy Barbosa (UNIRUY)</span><small>bacharelado, em curso</small></div>
+            <div class="item" data-i18n="edu2"><b>Técnico em Mecatrônica</b><span>SENAI CIMATEC</span><small>concluído em 2023</small></div>
+            <div class="item" data-i18n="edu3"><b>Ensino Médio</b><span>SESI Salvador</span><small>concluído em 2021</small></div>
           </div>
-          <div class="col"><h3>certificações e cursos</h3>
-            <div class="item"><b>HCIA, Artificial Intelligence V3.0</b><span>Huawei. Machine learning, deep learning e redes neurais com TensorFlow e MindSpore</span><small>2023</small></div>
-            <div class="item"><b>Complete Rust Programming Course</b><span>Udemy. Estruturas de dados, memória e otimização em Rust</span><small>em andamento</small></div>
-            <div class="item"><b>GCI World, ciência de dados</b><span>Matsuo-Iwasawa Lab, Universidade de Tóquio</span><small>em andamento, 2026</small></div>
+          <div class="col"><h3 data-i18n="cert.h">certificações e cursos</h3>
+            <div class="item" data-i18n="cert1"><b>HCIA, Artificial Intelligence V3.0</b><span>Huawei. Machine learning, deep learning e redes neurais com TensorFlow e MindSpore</span><small>2023</small></div>
+            <div class="item" data-i18n="cert2"><b>Complete Rust Programming Course</b><span>Udemy. Estruturas de dados, memória e otimização em Rust</span><small>em andamento</small></div>
+            <div class="item" data-i18n="cert3"><b>GCI World, ciência de dados</b><span>Matsuo-Iwasawa Lab, Universidade de Tóquio</span><small>em andamento, 2026</small></div>
           </div>
-          <div class="col"><h3>prêmios e participações</h3>
-            <div class="item award"><b>1º lugar, UNICEF Youth Challenge Blockchain</b><span>Projeto Raízes do Futuro</span><small>ago 2026</small></div>
-            <div class="item award"><b>Embaixadora Estudantil Google 2026</b><span>Referência local em IA com o Google Gemini</span><small>2026</small></div>
-            <div class="item"><b>Hackathons Transpetro, Mining Hub e Vale do Dendê</b><span>Machine learning, dados geológicos e monitoramento</span><small>2025</small></div>
-            <div class="item"><b>Artigo no 51º COBENGE</b><span>Ações para ampliar a presença de mulheres em STEM</span><small>2023</small></div>
+          <div class="col"><h3 data-i18n="aw.h">prêmios e participações</h3>
+            <div class="item award" data-i18n="aw1"><b>1º lugar, UNICEF Youth Challenge Blockchain</b><span>Projeto Raízes do Futuro</span><small>ago 2026</small></div>
+            <div class="item award" data-i18n="aw2"><b>Embaixadora Estudantil Google 2026</b><span>Referência local em IA com o Google Gemini</span><small>2026</small></div>
+            <div class="item" data-i18n="aw3"><b>Hackathons Transpetro, Mining Hub e Vale do Dendê</b><span>Machine learning, dados geológicos e monitoramento</span><small>2025</small></div>
+            <div class="item" data-i18n="aw4"><b>Artigo no 51º COBENGE</b><span>Ações para ampliar a presença de mulheres em STEM</span><small>2023</small></div>
           </div>
         </div>
       </div>
 
       <div class="about-sec">
-        <div class="ttl"><h2><span class="n">04</span>Fora do terminal</h2><p>O que me recarrega quando o código para de rodar.</p></div>
+        <div class="ttl"><h2 data-i18n="sec.off"><span class="n">04</span>Fora do terminal</h2><p data-i18n="sec.off.p">O que me recarrega quando o código para de rodar.</p></div>
         <div class="offline" id="offline"></div>
       </div>
     </div>
@@ -577,35 +600,35 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   <section class="block" id="creditos">
     <div class="wrap contact-grid">
       <div>
-        <p class="path">~/milena/<b>contato</b></p>
-        <h2 class="ct-h">Vamos conversar.</h2>
-        <p class="ct-p">Tem um fluxo preso em planilha, um evento que precisa de uma palestra sobre IA ou uma vaga que pede alguém que não tem medo de desafio? Me chame pelo canal que preferir.</p>
+        <p class="path">~/milena/<b data-i18n="path.ct">contato</b></p>
+        <h2 class="ct-h" data-i18n="ct.h">Vamos conversar.</h2>
+        <p class="ct-p" data-i18n="ct.p">Tem um fluxo preso em planilha, um evento que precisa de uma palestra sobre IA ou uma vaga que pede alguém que não tem medo de desafio? Me chame pelo canal que preferir.</p>
         <dl class="ct-facts">
-          <div><dt>base</dt><dd>Salvador, Bahia</dd></div>
-          <div><dt>modalidade</dt><dd>Remoto e híbrido</dd></div>
-          <div><dt>idiomas</dt><dd>Português, inglês e espanhol</dd></div>
+          <div><dt data-i18n="fact.base">base</dt><dd>Salvador, Bahia</dd></div>
+          <div><dt data-i18n="fact.mode">modalidade</dt><dd data-i18n="fact.mode.v">Remoto e híbrido</dd></div>
+          <div><dt data-i18n="fact.langs">idiomas</dt><dd data-i18n="ct.langs.v">Português, inglês e espanhol</dd></div>
         </dl>
       </div>
       <div class="ct-list">
         <div class="ct-item">
           <div class="ct-ic" aria-hidden="true">@</div>
-          <div class="ct-tx"><span>e-mail</span><a href="mailto:milena.lcalasans@gmail.com">milena.lcalasans@gmail.com</a></div>
-          <div class="ct-ac"><button type="button" class="ct-copy" data-copy="milena.lcalasans@gmail.com">Copiar</button><a class="ct-go" href="mailto:milena.lcalasans@gmail.com">Enviar</a></div>
+          <div class="ct-tx"><span data-i18n="ct.email">e-mail</span><a href="mailto:milena.lcalasans@gmail.com">milena.lcalasans@gmail.com</a></div>
+          <div class="ct-ac"><button type="button" class="ct-copy" data-copy="milena.lcalasans@gmail.com" data-i18n="ct.copy">Copiar</button><a class="ct-go" href="mailto:milena.lcalasans@gmail.com" data-i18n="ct.send">Enviar</a></div>
         </div>
         <div class="ct-item">
           <div class="ct-ic" aria-hidden="true">#</div>
-          <div class="ct-tx"><span>telefone e WhatsApp</span><a href="tel:+5571984233923">(71) 98423-3923</a></div>
-          <div class="ct-ac"><button type="button" class="ct-copy" data-copy="+55 71 98423-3923">Copiar</button><a class="ct-go" href="https://wa.me/5571984233923" target="_blank" rel="noopener">WhatsApp</a></div>
+          <div class="ct-tx"><span data-i18n="ct.phone">telefone e WhatsApp</span><a href="tel:+5571999655820">+55 (71) 99965-5820</a></div>
+          <div class="ct-ac"><button type="button" class="ct-copy" data-copy="+55 71 99965-5820" data-i18n="ct.copy">Copiar</button><a class="ct-go" href="https://wa.me/5571999655820" target="_blank" rel="noopener">WhatsApp</a></div>
         </div>
         <div class="ct-item">
           <div class="ct-ic" aria-hidden="true">in</div>
           <div class="ct-tx"><span>LinkedIn</span><a href="https://www.linkedin.com/in/milenacalasans/" target="_blank" rel="noopener">linkedin.com/in/milenacalasans</a></div>
-          <div class="ct-ac"><a class="ct-go" href="https://www.linkedin.com/in/milenacalasans/" target="_blank" rel="noopener">Abrir</a></div>
+          <div class="ct-ac"><a class="ct-go" href="https://www.linkedin.com/in/milenacalasans/" target="_blank" rel="noopener" data-i18n="ct.open">Abrir</a></div>
         </div>
         <div class="ct-item">
           <div class="ct-ic" aria-hidden="true">&lt;/&gt;</div>
           <div class="ct-tx"><span>GitHub</span><a href="https://github.com/iMilena" target="_blank" rel="noopener">github.com/iMilena</a></div>
-          <div class="ct-ac"><a class="ct-go" href="https://github.com/iMilena" target="_blank" rel="noopener">Abrir</a></div>
+          <div class="ct-ac"><a class="ct-go" href="https://github.com/iMilena" target="_blank" rel="noopener" data-i18n="ct.open">Abrir</a></div>
         </div>
         <p class="ct-toast" id="ctToast" aria-live="polite"></p>
       </div>
@@ -613,13 +636,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   </section>
 </div>
 </main>
-<footer><div class="wrap"><span>Portfólio de Milena Calasans</span><span>Salvador, Bahia</span></div></footer>
+<footer><div class="wrap"><span data-i18n="foot">Portfólio de Milena Calasans</span><span>Salvador, Bahia</span></div></footer>
 
 <!-- PLAYER -->
 <div class="player" id="player" role="dialog" aria-modal="true" aria-labelledby="pTitle" aria-hidden="true">
   <div class="top">
-    <span class="navep"><button type="button" id="pPrev">Anterior</button><button type="button" id="pNext">Próximo</button></span>
-    <button class="x" type="button" id="pClose" aria-label="Fechar projeto">×</button>
+    <span class="navep"><button type="button" id="pPrev" data-i18n="p.prev">Anterior</button><button type="button" id="pNext" data-i18n="p.next">Próximo</button></span>
+    <button class="x" type="button" id="pClose" aria-label="Fechar projeto" data-i18n-attr="aria-label:p.close">×</button>
   </div>
   <div class="stage">
     <div id="pArt" style="position:absolute;inset:0"></div>
@@ -639,6 +662,67 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 <script>
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ======== idioma ======== */
+const LANGS=["pt","en","es"];
+function pickLang(){
+  try{ const q=new URLSearchParams(location.search).get("lang"); if(LANGS.includes(q)) return q; }catch(e){}
+  try{ const s=localStorage.getItem("mc-lang"); if(LANGS.includes(s)) return s; }catch(e){}
+  const n=(navigator.language||"").toLowerCase();
+  return n.startsWith("es")?"es":n.startsWith("en")?"en":"pt";
+}
+let LANG=pickLang();
+const L=()=>(window.I18N&&I18N[LANG])||{};
+/* textos gerados via JS; os textos fixos em PT vêm do próprio HTML */
+const S_PT={
+  "kind.auto":"automação","kind.a":"IA","kind.h":"decisão humana",
+  "cat.ia":"IA","cat.auto":"automação","cat.dados":"dados","cat.chain":"blockchain","cat.hard":"robótica e sistemas",
+  "p.problem":"PROBLEMA","p.solution":"SOLUÇÃO","p.how":"Como funciona","p.dec":"Decisões técnicas","p.card":"FICHA","p.results":"RESULTADOS","p.tools":"FERRAMENTAS",
+  "p.role":"papel","p.status":"status","p.period":"período","p.site":"Visitar o site","p.code":"Ver o código no GitHub",
+  "p.internal":"Projeto interno: código, dados e documentação ficam no ambiente da empresa.",
+  "mail.title":"O e-mail que chega","mail.sub":"Um único modelo com a identidade da marca, que muda cor, título e etapas conforme o status. Clique para ver cada aviso.",
+  "mail.aria":"Status do e-mail","mail.note":"dados fictícios, só para demonstração","mail.to":"Para:","mail.subj":"Assunto:",
+  "mail.subjPre":"[Contas a Pagar Rede+] Solicitação nº128: ","mail.dept":"CONTAS A PAGAR","mail.num":"SOLICITAÇÃO Nº128",
+  "mail.cta":"Abrir a solicitação no Notion","mail.alt":"Se o botão não funcionar, copie o link da solicitação.","mail.next":"O QUE ACONTECE AGORA",
+  "mail.foot":"Você recebeu este aviso porque participa desta despesa no fluxo de Contas a Pagar.<br>Mensagem automática do Grupo Rede+. Não responda a este e-mail.",
+  "mail.steps":["Solicitação registrada","Análise do líder","Conferência do Financeiro e pagamento","Pagamento concluído"],
+  "t.intro":"digite help para ver os comandos","t.cmds":"comandos","t.notfound":"comando não encontrado: {k}. Digite help.",
+  "t.whoami":"Milena Calasans. IA, automação de processos e blockchain. Ousada, competitiva e sempre inventando alguma coisa.",
+  "t.openProj":"abrindo projetos...","t.openAbout":"abrindo sobre...","t.opening":"abrindo ",
+  "t.stack":"linguagens: Python, Rust, SQL, C, JavaScript\nautomação: Power Automate, Power Apps, VBA\ndados: Power BI, Excel avançado, SQL Server\nweb3: smart contracts em Rust, RWA",
+  "t.awards":"1º lugar UNICEF Youth Challenge Blockchain 2026 | Google Student Ambassador 2026 | HCIA-AI Huawei",
+  "t.email":"e-mail","t.phone":"telefone","t.sudo":"permissão negada: aqui quem decide são as pessoas.",
+  "ct.copy":"Copiar","ct.copied":"Copiado","ct.copiedMsg":"copiado: ","ct.copyFail":"não deu para copiar automaticamente: ",
+  "title.home":"Milena Calasans | Portfólio","title.projetos":"Projetos | Milena Calasans","title.sobre":"Sobre mim | Milena Calasans","title.contato":"Contato | Milena Calasans",
+  "meta.desc":"Portfólio de Milena Calasans: IA, automação de processos e blockchain."
+};
+const u=k=>{ const s=L().s; return s&&s[k]!==undefined?s[k]:S_PT[k]; };
+/* mescla a tradução sobre o item em PT, preservando tipos de etapa e cores */
+function loc(base,over){
+  if(!over) return base; const o={...base,...over};
+  if(over.steps) o.steps=base.steps.map(([t,k],i)=>[over.steps[i]??t,k]);
+  if(over.nodes) o.nodes=base.nodes.map(([t,k],i)=>[over.nodes[i]??t,k]);
+  if(typeof over.pill==="string") o.pill=[over.pill,base.pill[1],base.pill[2]];
+  return o;
+}
+const tr=(arr,key)=>arr.map((x,i)=>loc(x,(L()[key]||[])[i]));
+const ORIG=new Map(), ORIGA=new Map();
+function applyStatic(){
+  document.documentElement.lang=LANG==="pt"?"pt-BR":LANG;
+  const s=L().s||{};
+  document.querySelectorAll("[data-i18n]").forEach(e=>{
+    if(!ORIG.has(e)) ORIG.set(e,{html:e.innerHTML});
+    const v=s[e.dataset.i18n]; e.innerHTML=v!==undefined?v:ORIG.get(e).html;
+  });
+  document.querySelectorAll("[data-i18n-attr]").forEach(e=>{
+    if(!ORIGA.has(e)) ORIGA.set(e,{});
+    const o=ORIGA.get(e);
+    e.dataset.i18nAttr.split(";").forEach(p=>{ const [a,k]=p.split(":"); if(!(a in o)) o[a]=e.getAttribute(a); e.setAttribute(a,s[k]!==undefined?s[k]:o[a]); });
+  });
+  document.querySelectorAll("[data-lang]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===LANG)));
+  document.getElementById("langSel").value=LANG;
+  document.querySelector('meta[name="description"]').content=u("meta.desc");
+}
 
 /* ======== episodes ======== */
 const T_AUTO="", T_IA="a", T_HU="h";
@@ -841,24 +925,31 @@ function flowSVG(nodes,big){
   if(!reduce) g+=`<circle cy="${y}" r="${big?5:4}" fill="#7CF5E4"><animate attributeName="cx" values="${pad};${W-pad}" dur="${big?6:4.5}s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.92;1" dur="${big?6:4.5}s" repeatCount="indefinite"/></circle>`;
   return `<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet" aria-hidden="true">${g}</svg>`;
 }
-const CATL={ia:"IA",auto:"automação",dados:"dados",chain:"blockchain",hard:"robótica e sistemas"};
 const shelves={rede:document.getElementById("shelfRede"),own:document.getElementById("shelfOwn")};
-EPS.forEach((ep,i)=>{
-  const b=document.createElement("button"); b.type="button"; b.className="pc"; b.dataset.open=i; b.dataset.cat=ep.cat.join(" ");
-  b.setAttribute("aria-label",`${ep.name}. ${ep.syn}`);
-  b.innerHTML=`<div class="pc-cv">${flowSVG(ep.nodes,false)}${ep.badge?`<span class="badge"></span>`:""}</div><div class="pc-bd"><p class="pc-lb"></p><h3></h3><p class="pc-d"></p><div class="pc-tg"></div></div>`;
-  if(ep.badge) b.querySelector(".badge").textContent=ep.badge;
-  b.querySelector(".pc-lb").textContent=ep.cat.map(c=>CATL[c]).join(" + ");
-  b.querySelector("h3").textContent=ep.name; b.querySelector(".pc-d").textContent=ep.syn;
-  const tg=b.querySelector(".pc-tg"); ep.stack.slice(0,3).forEach(t=>{ const sp=document.createElement("span"); sp.textContent=t; tg.appendChild(sp); });
-  shelves[ep.g].appendChild(b);
-});
-document.getElementById("pfilters").addEventListener("click",e=>{
-  const bt=e.target.closest("button"); if(!bt) return;
-  document.querySelectorAll("#pfilters button").forEach(x=>x.setAttribute("aria-pressed",String(x===bt)));
-  const f=bt.dataset.f;
+let curFilter="all";
+function renderShelves(){
+  shelves.rede.innerHTML=""; shelves.own.innerHTML="";
+  tr(EPS,"eps").forEach((ep,i)=>{
+    const b=document.createElement("button"); b.type="button"; b.className="pc"; b.dataset.open=i; b.dataset.cat=ep.cat.join(" ");
+    b.setAttribute("aria-label",`${ep.name}. ${ep.syn}`);
+    b.innerHTML=`<div class="pc-cv">${flowSVG(ep.nodes,false)}${ep.badge?`<span class="badge"></span>`:""}</div><div class="pc-bd"><p class="pc-lb"></p><h3></h3><p class="pc-d"></p><div class="pc-tg"></div></div>`;
+    if(ep.badge) b.querySelector(".badge").textContent=ep.badge;
+    b.querySelector(".pc-lb").textContent=ep.cat.map(c=>u("cat."+c)).join(" + ");
+    b.querySelector("h3").textContent=ep.name; b.querySelector(".pc-d").textContent=ep.syn;
+    const tg=b.querySelector(".pc-tg"); ep.stack.slice(0,3).forEach(t=>{ const sp=document.createElement("span"); sp.textContent=t; tg.appendChild(sp); });
+    shelves[ep.g].appendChild(b);
+  });
+  applyFilter();
+}
+function applyFilter(){
+  const f=curFilter;
+  document.querySelectorAll("#pfilters button").forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.f===f)));
   document.querySelectorAll(".pc[data-open]").forEach(el=>{ el.hidden = !(f==="all" || el.dataset.cat.split(" ").includes(f)); });
   document.querySelectorAll(".pgroup").forEach(gp=>{ gp.hidden = ![...gp.querySelectorAll(".pc[data-open]")].some(el=>!el.hidden); });
+}
+document.getElementById("pfilters").addEventListener("click",e=>{
+  const bt=e.target.closest("button"); if(!bt) return;
+  curFilter=bt.dataset.f; applyFilter();
 });
 
 /* ======== e-mail do contas a pagar ======== */
@@ -871,34 +962,33 @@ const MAIL=[
   {k:"Concluído",to:"Líder e solicitante",pill:["Pagamento concluído","#E3F6EA","#1C7A43"],h:"Pagamento concluído",t:"Boa notícia: o pagamento foi concluído, realizado e conciliado, sem pendências. Obrigado por seguir o fluxo direitinho!",f:[["Beneficiário","Fornecedor Exemplo Ltda"],["Solicitante","Ana Souza"]],step:3}
 ];
 function mailHTML(m){
-  const steps=["Solicitação registrada","Análise do líder","Conferência do Financeiro e pagamento","Pagamento concluído"];
-  const tl=steps.map((st,i)=>`<li class="${i<m.step?"done":(i===m.step?"now":"")}"><i></i>${st}</li>`).join("");
+  const tl=u("mail.steps").map((st,i)=>`<li class="${i<m.step?"done":(i===m.step?"now":"")}"><i></i>${st}</li>`).join("");
   const box=m.f.map(([k,v])=>`<div><dt>${k.toUpperCase()}</dt><dd>${v}</dd></div>`).join("");
-  return `<div class="mail"><div class="mh"><div><b>REDE+</b><small>GRUPO REDE MAIS</small></div><span>CONTAS A PAGAR</span></div>
-  <div class="mb"><div class="mtop"><span class="num">SOLICITAÇÃO Nº128</span><span class="pill" style="background:${m.pill[1]};color:${m.pill[2]}">${m.pill[0]}</span></div>
+  return `<div class="mail"><div class="mh"><div><b>REDE+</b><small>GRUPO REDE MAIS</small></div><span>${u("mail.dept")}</span></div>
+  <div class="mb"><div class="mtop"><span class="num">${u("mail.num")}</span><span class="pill" style="background:${m.pill[1]};color:${m.pill[2]}">${m.pill[0]}</span></div>
   <h4>${m.h}</h4><p class="txt">${m.t}</p><dl class="box">${box}</dl>
-  <span class="cta">Abrir a solicitação no Notion</span><p class="alt">Se o botão não funcionar, copie o link da solicitação.</p>
-  <div class="tl"><p>O QUE ACONTECE AGORA</p><ul>${tl}</ul></div></div>
-  <div class="mf">Você recebeu este aviso porque participa desta despesa no fluxo de Contas a Pagar.<br>Mensagem automática do Grupo Rede+. Não responda a este e-mail.</div></div>`;
+  <span class="cta">${u("mail.cta")}</span><p class="alt">${u("mail.alt")}</p>
+  <div class="tl"><p>${u("mail.next")}</p><ul>${tl}</ul></div></div>
+  <div class="mf">${u("mail.foot")}</div></div>`;
 }
 function mailSection(){
   const sec=document.createElement("div"); sec.className="mail-sec";
-  sec.innerHTML='<h3>O e-mail que chega</h3><p class="sub">Um único modelo com a identidade da marca, que muda cor, título e etapas conforme o status. Clique para ver cada aviso.</p><div class="mail-tabs" role="group" aria-label="Status do e-mail"></div><div class="mail-wrap"><p class="mail-meta"></p><div class="mail-slot"></div></div><p class="mail-note">dados fictícios, só para demonstração</p>';
+  sec.innerHTML=`<h3>${u("mail.title")}</h3><p class="sub">${u("mail.sub")}</p><div class="mail-tabs" role="group" aria-label="${u("mail.aria")}"></div><div class="mail-wrap"><p class="mail-meta"></p><div class="mail-slot"></div></div><p class="mail-note">${u("mail.note")}</p>`;
   const tabs=sec.querySelector(".mail-tabs"), slot=sec.querySelector(".mail-slot"), meta=sec.querySelector(".mail-meta");
-  function show(i){ const m=MAIL[i]; tabs.querySelectorAll("button").forEach((b,k)=>b.setAttribute("aria-pressed",String(k===i)));
-    meta.innerHTML=`<span>Para: <b>${m.to}</b></span><span>Assunto: <b>[Contas a Pagar Rede+] Solicitação nº128: ${m.h.toLowerCase()}</b></span>`;
+  const MAILS=tr(MAIL,"mail");
+  function show(i){ const m=MAILS[i]; tabs.querySelectorAll("button").forEach((b,k)=>b.setAttribute("aria-pressed",String(k===i)));
+    meta.innerHTML=`<span>${u("mail.to")} <b>${m.to}</b></span><span>${u("mail.subj")} <b>${u("mail.subjPre")}${m.h.toLowerCase()}</b></span>`;
     slot.innerHTML=mailHTML(m); if(!reduce) slot.animate([{opacity:0},{opacity:1}],{duration:220}); }
-  MAIL.forEach((m,i)=>{ const b=document.createElement("button"); b.type="button"; b.textContent=m.k; b.addEventListener("click",()=>show(i)); tabs.appendChild(b); });
+  MAILS.forEach((m,i)=>{ const b=document.createElement("button"); b.type="button"; b.textContent=m.k; b.addEventListener("click",()=>show(i)); tabs.appendChild(b); });
   show(0); return sec;
 }
 
 /* ======== player ======== */
 const player=document.getElementById("player"); let cur=0, lastFocus=null;
-const KIND={"":"automação","a":"IA","h":"decisão humana"};
 function el(tag,cls,txt){ const e=document.createElement(tag); if(cls) e.className=cls; if(txt!==undefined) e.textContent=txt; return e; }
 function openEp(i, trigger){
   cur=(i+EPS.length)%EPS.length; if(trigger) lastFocus=trigger;
-  const ep=EPS[cur];
+  const ep=loc(EPS[cur],(L().eps||[])[cur]);
   document.getElementById("pArt").innerHTML=""; document.getElementById("pFlow").innerHTML=flowSVG(ep.nodes,true);
   const meta=document.getElementById("pMeta"); meta.innerHTML="";
   const tg=el("span","tag",ep.origin); meta.appendChild(tg);
@@ -907,27 +997,27 @@ function openEp(i, trigger){
   document.getElementById("pTitle").textContent=ep.name;
   document.getElementById("pLog").textContent=ep.lead;
   const main=document.getElementById("pMain"); main.innerHTML="";
-  const pr=el("div","pb"); pr.append(el("p","vt","PROBLEMA"),el("p","",ep.problem));
-  const so=el("div","pb hope"); so.append(el("p","vt","SOLUÇÃO"),el("p","",ep.solution));
+  const pr=el("div","pb"); pr.append(el("p","vt",u("p.problem")),el("p","",ep.problem));
+  const so=el("div","pb hope"); so.append(el("p","vt",u("p.solution")),el("p","",ep.solution));
   const ps=el("div","ps"); ps.append(pr,so);
-  const fl=el("div","sec"); fl.appendChild(el("h3","","Como funciona"));
-  const ol=el("ol","flow"); ep.steps.forEach(([t,k])=>{ const li=el("li",k?("k-"+k):"k-auto"); li.append(el("span","st",t),el("span","kd",KIND[k])); ol.appendChild(li); });
+  const fl=el("div","sec"); fl.appendChild(el("h3","",u("p.how")));
+  const ol=el("ol","flow"); ep.steps.forEach(([t,k])=>{ const li=el("li",k?("k-"+k):"k-auto"); li.append(el("span","st",t),el("span","kd",u("kind."+(k||"auto")))); ol.appendChild(li); });
   fl.appendChild(ol);
-  const dc=el("div","sec"); dc.appendChild(el("h3","","Decisões técnicas"));
+  const dc=el("div","sec"); dc.appendChild(el("h3","",u("p.dec")));
   const ul=el("ul","dec"); ep.decisions.forEach(t=>ul.appendChild(el("li","",t))); dc.appendChild(ul);
   main.append(ps,fl);
   if(ep.email) main.appendChild(mailSection());
   main.appendChild(dc);
   const side=document.getElementById("pSide"); side.innerHTML="";
   const fi=el("dl","ficha");
-  [["papel",ep.role],["status",ep.status],["período",ep.period]].forEach(([k,v])=>{ if(!v) return; const d=el("div"); d.append(el("dt","",k),el("dd","",v)); fi.appendChild(d); });
-  side.append(el("h4","","FICHA"),fi,el("h4","","RESULTADOS"));
+  [[u("p.role"),ep.role],[u("p.status"),ep.status],[u("p.period"),ep.period]].forEach(([k,v])=>{ if(!v) return; const d=el("div"); d.append(el("dt","",k),el("dd","",v)); fi.appendChild(d); });
+  side.append(el("h4","",u("p.card")),fi,el("h4","",u("p.results")));
   const rs=el("ul","res"); ep.results.forEach(t=>rs.appendChild(el("li","",t))); side.appendChild(rs);
-  side.appendChild(el("h4","","FERRAMENTAS"));
+  side.appendChild(el("h4","",u("p.tools")));
   const ch=el("div","chips"); ep.stack.forEach(t=>ch.appendChild(el("span","",t))); side.appendChild(ch);
-  if(ep.site){ const w=el("a","btn play","Visitar o site"); w.href=ep.site; w.target="_blank"; w.rel="noopener"; w.style.marginRight="8px"; w.style.marginBottom="8px"; side.appendChild(w); }
-  if(ep.link){ const a=el("a","btn","Ver o código no GitHub"); a.href=ep.link; a.target="_blank"; a.rel="noopener"; side.appendChild(a); }
-  else if(ep.g==="rede"){ side.appendChild(el("p","note","Projeto interno: código, dados e documentação ficam no ambiente da empresa.")); }
+  if(ep.site){ const w=el("a","btn play",u("p.site")); w.href=ep.site; w.target="_blank"; w.rel="noopener"; w.style.marginRight="8px"; w.style.marginBottom="8px"; side.appendChild(w); }
+  if(ep.link){ const a=el("a","btn",u("p.code")); a.href=ep.link; a.target="_blank"; a.rel="noopener"; side.appendChild(a); }
+  else if(ep.g==="rede"){ side.appendChild(el("p","note",u("p.internal"))); }
   player.scrollTop=0; player.classList.add("open"); player.setAttribute("aria-hidden","false"); document.body.classList.add("locked");
   setTimeout(()=>document.getElementById("pClose").focus(),50);
 }
@@ -965,24 +1055,29 @@ const XP=[
    t:["Robótica","Prototipagem","Pesquisa aplicada"]}
 ];
 const xpList=document.getElementById("xpList"), xpPane=document.getElementById("xpPane");
-function showXp(i){
+let xpCur=0;
+function showXp(i,quiet){
+  xpCur=i;
   [...xpList.children].forEach((b,k)=>{ b.setAttribute("aria-selected",String(k===i)); b.tabIndex=k===i?0:-1; });
-  const x=XP[i]; xpPane.innerHTML="";
+  const x=loc(XP[i],(L().xp||[])[i]); xpPane.innerHTML="";
   const h=document.createElement("p"); h.className="role"; h.textContent=x.role;
   const m=document.createElement("p"); m.className="meta"; m.innerHTML="<b></b>  |  <span></span>"; m.querySelector("b").textContent=x.when; m.querySelector("span").textContent=x.where;
   const ul=document.createElement("ul"); x.b.forEach(t=>{ const li=document.createElement("li"); li.textContent=t; ul.appendChild(li); });
   const tl=document.createElement("div"); tl.className="tools"; x.t.forEach(t=>{ const sp=document.createElement("span"); sp.textContent=t; tl.appendChild(sp); });
   xpPane.append(h,m,ul,tl);
-  if(!reduce) xpPane.animate([{opacity:0,transform:"translateY(6px)"},{opacity:1,transform:"none"}],{duration:260,easing:"ease-out"});
+  if(!reduce && !quiet) xpPane.animate([{opacity:0,transform:"translateY(6px)"},{opacity:1,transform:"none"}],{duration:260,easing:"ease-out"});
 }
-XP.forEach((x,i)=>{
-  const b=document.createElement("button"); b.type="button"; b.setAttribute("role","tab"); b.innerHTML="<b></b><span></span>";
-  b.querySelector("b").textContent=x.co; b.querySelector("span").textContent=x.when;
-  b.addEventListener("click",()=>showXp(i));
-  b.addEventListener("keydown",e=>{ let n=null; if(e.key==="ArrowDown"||e.key==="ArrowRight") n=(i+1)%XP.length; if(e.key==="ArrowUp"||e.key==="ArrowLeft") n=(i-1+XP.length)%XP.length; if(n!==null){ e.preventDefault(); showXp(n); xpList.children[n].focus(); } });
-  xpList.appendChild(b);
-});
-showXp(0);
+function renderXp(){
+  xpList.innerHTML="";
+  tr(XP,"xp").forEach((x,i)=>{
+    const b=document.createElement("button"); b.type="button"; b.setAttribute("role","tab"); b.innerHTML="<b></b><span></span>";
+    b.querySelector("b").textContent=x.co; b.querySelector("span").textContent=x.when;
+    b.addEventListener("click",()=>showXp(i));
+    b.addEventListener("keydown",e=>{ let n=null; if(e.key==="ArrowDown"||e.key==="ArrowRight") n=(i+1)%XP.length; if(e.key==="ArrowUp"||e.key==="ArrowLeft") n=(i-1+XP.length)%XP.length; if(n!==null){ e.preventDefault(); showXp(n); xpList.children[n].focus(); } });
+    xpList.appendChild(b);
+  });
+  showXp(xpCur,true);
+}
 
 /* ======== sobre: competências ======== */
 const SK=[
@@ -994,15 +1089,18 @@ const SK=[
   {t:"Ferramentas e plataformas",k:"tools/",core:["Git","Notion","Microsoft 365"],o:["SharePoint","Visual Studio","VirtualBox","ERP Connect","Windows, Linux e Android"]}
 ];
 const skBox=document.getElementById("skills");
-SK.forEach(g=>{
-  const d=document.createElement("div"); d.className="skill";
-  d.innerHTML='<div class="hd"><h3></h3><span></span></div><ul></ul>';
-  d.querySelector("h3").textContent=g.t; d.querySelector(".hd span").textContent=g.k;
-  const ul=d.querySelector("ul");
-  g.core.forEach(x=>{ const li=document.createElement("li"); li.className="core"; li.textContent=x; ul.appendChild(li); });
-  g.o.forEach(x=>{ const li=document.createElement("li"); li.textContent=x; ul.appendChild(li); });
-  skBox.appendChild(d);
-});
+function renderSkills(){
+  skBox.innerHTML="";
+  tr(SK,"sk").forEach(g=>{
+    const d=document.createElement("div"); d.className="skill";
+    d.innerHTML='<div class="hd"><h3></h3><span></span></div><ul></ul>';
+    d.querySelector("h3").textContent=g.t; d.querySelector(".hd span").textContent=g.k;
+    const ul=d.querySelector("ul");
+    g.core.forEach(x=>{ const li=document.createElement("li"); li.className="core"; li.textContent=x; ul.appendChild(li); });
+    g.o.forEach(x=>{ const li=document.createElement("li"); li.textContent=x; ul.appendChild(li); });
+    skBox.appendChild(d);
+  });
+}
 
 /* ======== sobre: fora do terminal ======== */
 const OFF=[
@@ -1011,7 +1109,7 @@ const OFF=[
   {k:"sci-fi.md",t:"Ficção científica",p:"Ela me lembra da pergunta que guia meu trabalho: essa tecnologia está a favor de quem?",svg:`<rect width="300" height="180" fill="#06070C"/><ellipse cx="150" cy="90" rx="110" ry="46" fill="none" stroke="#7CF5E4" stroke-opacity=".6"/><circle cx="150" cy="90" r="34" fill="#0C0E17" stroke="#7CF5E4"/><circle cx="150" cy="90" r="14" fill="#FF4B3E"/>${[0,1,2,3,4,5,6,7].map(i=>`<rect x="0" y="${14+i*20}" width="300" height="2" fill="#7CF5E4" opacity=".05"/>`).join("")}<rect x="40" y="86" width="220" height="3" fill="#FF4B3E" opacity=".5"/>`}
 ];
 const off=document.getElementById("offline");
-OFF.forEach(o=>{ const d=document.createElement("article"); d.className="tile"; d.innerHTML=`<div class="vis"><svg viewBox="0 0 300 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${o.svg}</svg></div><div class="tx"><span></span><h3></h3><p></p></div>`; d.querySelector(".tx span").textContent=o.k; d.querySelector("h3").textContent=o.t; d.querySelector("p").textContent=o.p; off.appendChild(d); });
+function renderOffline(){ off.innerHTML=""; tr(OFF,"off").forEach(o=>{ const d=document.createElement("article"); d.className="tile"; d.innerHTML=`<div class="vis"><svg viewBox="0 0 300 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${o.svg}</svg></div><div class="tx"><span></span><h3></h3><p></p></div>`; d.querySelector(".tx span").textContent=o.k; d.querySelector("h3").textContent=o.t; d.querySelector("p").textContent=o.p; off.appendChild(d); }); }
 
 /* ======== editor ======== */
 const FILES={
@@ -1077,66 +1175,81 @@ function paint(tokens,n,withCaret){
   const lines=(html.match(/\n/g)||[]).length+1; cwLn.textContent=Array.from({length:lines},(_,i)=>i+1).join("\n");
   const box=cwSrc.parentElement; if(withCaret) box.scrollTop=box.scrollHeight;
 }
+const fileOf=name=>({...FILES[name],...((L().files||{})[name]||{})});
+let curFile="milena.ts", editorOn=false;
 function openFile(name){
+  curFile=name; editorOn=true;
   [...cwTabs.children].forEach(b=>{ const on=b.dataset.f===name; b.setAttribute("aria-selected",String(on)); b.tabIndex=on?0:-1; });
-  const f=FILES[name], tokens=tokenize(f.src,f.lang), total=f.src.length;
+  const f=fileOf(name), tokens=tokenize(f.src,f.lang), total=f.src.length;
   clearInterval(typeTimer); cwSrc.parentElement.scrollTop=0;
   if(reduce){ paint(tokens,total,false); return; }
   let n=0; typeTimer=setInterval(()=>{ n+=3; paint(tokens,n,n<total); if(n>=total) clearInterval(typeTimer); },16);
 }
 Object.keys(FILES).forEach(name=>{ const b=document.createElement("button"); b.type="button"; b.setAttribute("role","tab"); b.dataset.f=name; b.textContent=name; b.addEventListener("click",()=>openFile(name)); cwTabs.appendChild(b); });
-
-/* background code texture */
-document.getElementById("codebg").textContent=Object.values(FILES).map(f=>f.src).join("\n\n").repeat(2);
+function renderEditor(){
+  [...cwTabs.children].forEach(b=>{ b.textContent=fileOf(b.dataset.f).name||b.dataset.f; });
+  /* background code texture */
+  document.getElementById("codebg").textContent=Object.keys(FILES).map(k=>fileOf(k).src).join("\n\n").repeat(2);
+  if(editorOn) openFile(curFile);
+}
 
 /* ======== terminal ======== */
 const termOut=document.getElementById("termOut"), termIn=document.getElementById("termIn");
 const history=[]; let hIdx=0;
 function print(txt,cls){ const d=document.createElement("div"); if(cls) d.className=cls; d.textContent=txt; termOut.appendChild(d); termOut.scrollTop=termOut.scrollHeight; }
+/* comandos têm um id fixo e um nome por idioma; qualquer nome de qualquer idioma funciona */
+const CMD_PT={projects:"projetos",about:"sobre",awards:"premios",contact:"contato"};
+const cmdName=id=>((L().cmd||{})[id])||CMD_PT[id]||id;
+function cmdId(w){
+  for(const l of LANGS){ const m=l==="pt"?CMD_PT:(((window.I18N||{})[l]||{}).cmd||{}); for(const id in m) if(m[id]===w) return id; }
+  return w;
+}
 const CMDS={
-  help:()=>print("comandos: whoami, projetos, sobre, stack, premios, contato, email, github, linkedin, clear"),
-  whoami:()=>print("Milena Calasans. IA, automação de processos e blockchain. Ousada, competitiva e sempre inventando alguma coisa.","ok"),
-  projetos:()=>{ print("abrindo projetos...","ok"); location.hash="#/projetos"; },
-  sobre:()=>{ print("abrindo sobre...","ok"); location.hash="#/sobre"; },
-  stack:()=>print("linguagens: Python, Rust, SQL, C, JavaScript\nautomação: Power Automate, Power Apps, VBA\ndados: Power BI, Excel avançado, SQL Server\nweb3: smart contracts em Rust, RWA"),
-  premios:()=>print("1º lugar UNICEF Youth Challenge Blockchain 2026 | Google Student Ambassador 2026 | HCIA-AI Huawei","ok"),
-  contato:()=>{ print("e-mail: milena.lcalasans@gmail.com\ntelefone: (71) 98423-3923\nlinkedin: linkedin.com/in/milenacalasans\ngithub: github.com/iMilena","ok"); },
-  email:()=>{ print("abrindo milena.lcalasans@gmail.com","ok"); location.href="mailto:milena.lcalasans@gmail.com"; },
-  github:()=>{ print("abrindo github.com/iMilena","ok"); window.open("https://github.com/iMilena","_blank","noopener"); },
-  linkedin:()=>{ print("abrindo linkedin.com/in/milenacalasans","ok"); window.open("https://www.linkedin.com/in/milenacalasans/","_blank","noopener"); },
+  help:()=>print(u("t.cmds")+": "+["whoami","projects","about","stack","awards","contact","email","github","linkedin","clear"].map(cmdName).join(", ")),
+  whoami:()=>print(u("t.whoami"),"ok"),
+  projects:()=>{ print(u("t.openProj"),"ok"); location.hash="#/projetos"; },
+  about:()=>{ print(u("t.openAbout"),"ok"); location.hash="#/sobre"; },
+  stack:()=>print(u("t.stack")),
+  awards:()=>print(u("t.awards"),"ok"),
+  contact:()=>{ print(`${u("t.email")}: milena.lcalasans@gmail.com\n${u("t.phone")}: +55 (71) 99965-5820\nlinkedin: linkedin.com/in/milenacalasans\ngithub: github.com/iMilena`,"ok"); },
+  email:()=>{ print(u("t.opening")+"milena.lcalasans@gmail.com","ok"); location.href="mailto:milena.lcalasans@gmail.com"; },
+  github:()=>{ print(u("t.opening")+"github.com/iMilena","ok"); window.open("https://github.com/iMilena","_blank","noopener"); },
+  linkedin:()=>{ print(u("t.opening")+"linkedin.com/in/milenacalasans","ok"); window.open("https://www.linkedin.com/in/milenacalasans/","_blank","noopener"); },
   clear:()=>{ termOut.innerHTML=""; },
-  sudo:()=>print("permissão negada: aqui quem decide são as pessoas.","err")
+  sudo:()=>print(u("t.sudo"),"err")
 };
 function run(raw){
   const cmd=raw.trim().toLowerCase(); if(!cmd) return;
   history.push(cmd); hIdx=history.length;
   print("$ "+cmd,"cmd");
-  const key=cmd.split(/\s+/)[0];
-  if(CMDS[key]) CMDS[key](); else print(`comando não encontrado: ${key}. Digite help.`,"err");
+  const key=cmd.split(/\s+/)[0], id=cmdId(key);
+  if(CMDS[id]) CMDS[id](); else print(u("t.notfound").replace("{k}",key),"err");
 }
+function renderHints(){ document.querySelectorAll(".term-hint [data-cmd]").forEach(b=>{ b.textContent=cmdName(b.dataset.cmd); }); }
 termIn.addEventListener("keydown",e=>{
   if(e.key==="Enter"){ run(termIn.value); termIn.value=""; }
   else if(e.key==="ArrowUp"){ if(hIdx>0){ hIdx--; termIn.value=history[hIdx]; } e.preventDefault(); }
   else if(e.key==="ArrowDown"){ if(hIdx<history.length-1){ hIdx++; termIn.value=history[hIdx]; } else { hIdx=history.length; termIn.value=""; } e.preventDefault(); }
-  else if(e.key==="Tab"){ const v=termIn.value.trim().toLowerCase(); const m=Object.keys(CMDS).filter(k=>k.startsWith(v)); if(v&&m.length===1){ termIn.value=m[0]; e.preventDefault(); } }
+  else if(e.key==="Tab"){ const v=termIn.value.trim().toLowerCase(); const m=Object.keys(CMDS).map(cmdName).filter(k=>k.startsWith(v)); if(v&&m.length===1){ termIn.value=m[0]; e.preventDefault(); } }
 });
-document.querySelectorAll("[data-cmd]").forEach(b=>b.addEventListener("click",()=>{ run(b.dataset.cmd); termIn.focus({preventScroll:true}); }));
-print("digite help para ver os comandos");
+document.querySelectorAll("[data-cmd]").forEach(b=>b.addEventListener("click",()=>{ run(cmdName(b.dataset.cmd)); termIn.focus({preventScroll:true}); }));
+print(u("t.intro"));
 
 /* ======== contato: copiar ======== */
 document.querySelectorAll(".ct-copy").forEach(b=>b.addEventListener("click",async()=>{
   const t=document.getElementById("ctToast"), v=b.dataset.copy;
-  try{ await navigator.clipboard.writeText(v); t.textContent="copiado: "+v; b.textContent="Copiado"; setTimeout(()=>b.textContent="Copiar",1800); }
-  catch(e){ t.textContent="não deu para copiar automaticamente: "+v; }
+  try{ await navigator.clipboard.writeText(v); t.textContent=u("ct.copiedMsg")+v; b.textContent=u("ct.copied"); setTimeout(()=>b.textContent=u("ct.copy"),1800); }
+  catch(e){ t.textContent=u("ct.copyFail")+v; }
 }));
 
 /* ======== router ======== */
-const PAGES={home:"Milena Calasans | Portfólio",projetos:"Projetos | Milena Calasans",sobre:"Sobre mim | Milena Calasans",contato:"Contato | Milena Calasans"};
+const PAGES=["home","projetos","sobre","contato"];
+function curRoute(){ const r=(location.hash.replace(/^#\/?/,"")||"home").split("/")[0]; return PAGES.includes(r)?r:"home"; }
 function route(){
-  let r=(location.hash.replace(/^#\/?/,"")||"home").split("/")[0]; if(!PAGES[r]) r="home";
+  const r=curRoute();
   document.querySelectorAll(".page").forEach(pg=>{ pg.hidden = pg.dataset.page!==r; });
   document.querySelectorAll("[data-nav]").forEach(a=>{ const on=a.dataset.nav===r; a.classList.toggle("on",on); if(on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
-  document.title=PAGES[r];
+  document.title=u("title."+r);
   if(player.classList.contains("open")) closeEp();
   window.scrollTo(0,0);
   const pg=document.querySelector(`.page[data-page="${r}"]`);
@@ -1148,6 +1261,21 @@ addEventListener("hashchange",route);
 /* ======== nav ======== */
 const nav=document.getElementById("nav");
 addEventListener("scroll",()=>nav.classList.toggle("solid",scrollY>40 || document.querySelector('.page[data-page="home"]').hidden),{passive:true});
+
+/* ======== troca de idioma ======== */
+function renderAll(){
+  applyStatic(); renderShelves(); renderXp(); renderSkills(); renderOffline(); renderEditor(); renderHints();
+  if(termOut.children.length===1) termOut.firstChild.textContent=u("t.intro");
+  document.title=u("title."+curRoute());
+}
+function setLang(l){
+  if(!LANGS.includes(l) || l===LANG) return;
+  LANG=l; try{ localStorage.setItem("mc-lang",l); }catch(e){}
+  renderAll();
+}
+document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+document.getElementById("langSel").addEventListener("change",e=>setLang(e.target.value));
+renderAll();
 route();
 
 /* ======== cold open ======== */
@@ -1163,7 +1291,7 @@ else {
   setTimeout(()=>document.getElementById("bootTitle").classList.add("on"),t0);
   setTimeout(()=>document.getElementById("bootBy").classList.add("on"),t0+(reduce?50:1200));
   setTimeout(()=>{ document.getElementById("bootGo").classList.add("on"); document.getElementById("watch").focus(); },t0+(reduce?80:1700));
-  addEventListener("keydown",e=>{ if(document.body.contains(boot) && !boot.classList.contains("gone") && (e.key==="Enter"||e.key===" "||e.key==="Escape")){ e.preventDefault(); endBoot(); } });
+  addEventListener("keydown",e=>{ if(document.body.contains(boot) && !boot.classList.contains("gone") && !e.target.closest(".boot-lang") && (e.key==="Enter"||e.key===" "||e.key==="Escape")){ e.preventDefault(); endBoot(); } });
 }
 </script>
 </body>
