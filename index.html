@@ -479,7 +479,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
     <div class="codebg" aria-hidden="true" id="codebg"></div>
     <div class="wrap hero-grid">
       <div>
-        <div class="meta-row"><span class="tag" data-i18n="brand.portfolio">PORTFÓLIO</span><span data-i18n="hero.count">13 projetos</span><span data-i18n="hero.areas">IA, automação e blockchain</span></div>
+        <div class="meta-row"><span class="tag" data-i18n="brand.portfolio">PORTFÓLIO</span><span data-i18n="hero.count">14 projetos</span><span data-i18n="hero.areas">IA, automação e blockchain</span></div>
         <h1>MILENA<br>CALASANS</h1>
         <p class="logline" data-i18n="hero.logline"><b>A máquina faz o repetitivo. As pessoas decidem.</b> Eu construo agentes de IA, automações e sistemas em blockchain que funcionam exatamente assim.</p>
         <div class="actions">
@@ -520,6 +520,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
       </div>
       <div class="flow-key" aria-label="Legenda das etapas" data-i18n-attr="aria-label:proj.legend"><span><i style="border:2px solid #7C87A8"></i><span data-i18n="kind.auto">automação</span></span><span><i style="border:2px solid #4E8DFF;background:radial-gradient(#4E8DFF 35%,transparent 40%)"></i><span data-i18n="kind.a">IA</span></span><span><i style="background:#FF8A3D"></i><span data-i18n="kind.h">decisão humana</span></span></div>
       <div class="pgroup"><div class="gh"><h3>Grupo Rede+</h3><span data-i18n="g.rede">automação de processos e IA em produção</span></div><div class="shelf" id="shelfRede"></div></div>
+      <div class="pgroup"><div class="gh"><h3>Quantum Cert</h3><span data-i18n="g.qc">infraestrutura de integridade pós-quântica</span></div><div class="shelf" id="shelfQc"></div></div>
       <div class="pgroup"><div class="gh"><h3 data-i18n="g.own.h">Projetos e hackathons</h3><span data-i18n="g.own">blockchain, machine learning e robótica</span></div><div class="shelf" id="shelfOwn"></div></div>
     </div>
   </section>
@@ -817,6 +818,16 @@ const EPS = [
    decisions:["Reforçar no início do workshop quem tem acesso a cada ferramenta, para legitimar o uso.","Mais tempo para o assistente oficial e visão geral das alternativas."],
    results:["Uso de IA com regra clara","Automações nascendo a partir das áreas"],
    stack:["Claude","ChatGPT","Copilot","Gemini","Notion AI"]},
+  {g:"qc", t:"QUANTUM", nodes:[["API",""],["permissão",""],["SHA3-512",""],["fila",""],["5 redes",""],["libera","h"]], name:"Quantum Cert: Integridade Pós-Quântica", origin:"Quantum Cert", cat:["chain"], art:"merge", pal:["#7CF5E4","#4E8DFF","#B58CFF"],
+   syn:"Módulos de reciclagem e escrow numa API que ancora eventos em cinco blockchains.",
+   lead:"Contribuição ao backend da Quantum Cert, uma infraestrutura de integridade pós-quântica que assina eventos com Falcon-512 e ancora os registros em Ethereum, Polygon, Solana, Stellar e Algorand. Desenvolvi dois módulos do núcleo: registro de resíduos com créditos ambientais e escrow multi-chain.",
+   period:"mai 2026", status:"Integrado ao backend da plataforma", role:"Head of Blockchain: módulos ERecycle e TikinEscrow, com testes",
+   problem:"Empresas precisam provar que um registro, como a pesagem de um lote de resíduos ou um pagamento, não foi alterado, sem expor dados pessoais em blockchain e sem depender de uma única rede. E a criptografia usada hoje pode ser quebrada por computadores quânticos.",
+   solution:"A plataforma segue o padrão Diamond (EIP-2535): cada funcionalidade é um módulo (facet) plugado no núcleo. Criei o ERecycleFacet, que registra resíduos e emite créditos ambientais com hash SHA3-512 e ancoragem em fila, e o TikinEscrowFacet, que trava, libera e cancela valores em escrow na rede escolhida pelo cliente, por meio de adaptadores para as cinco redes.",
+   steps:[["Cliente envia o registro pela API com chave e papel",T_AUTO],["Checagem de permissão por tenant e papel (admin ou operador)",T_AUTO],["Hash SHA3-512 do evento e gravação numa transação única",T_AUTO],["Fila de ancoragem publica só o hash na blockchain",T_AUTO],["Escrow trava o valor na rede escolhida: Solana, Stellar, Ethereum, Polygon ou Algorand",T_AUTO],["Liberação automática no prazo ou manual, e cancelamento quando necessário",T_HU]],
+   decisions:["Payload opaco: o núcleo não valida regra de negócio, só registra e ancora; a interpretação fica fora da cadeia.","Na blockchain vão só o hash e o horário, nunca dado pessoal.","Uma interface única de transição (travar, liberar, cancelar) implementada por cada adaptador de rede.","Registro, evento e vínculo gravados na mesma transação de banco, para nunca existir evento sem registro.","Testes automatizados para os dois módulos."],
+   results:["Dois módulos entregues no núcleo da plataforma","Escrow nas cinco redes com a mesma API","Créditos ambientais rastreáveis, na mesma linha do Raízes do Futuro"],
+   stack:["TypeScript","Prisma","SHA3-512","Falcon-512","Solana","Stellar (Soroban)","Ethereum","Polygon","Algorand"], site:"https://www.quantumcert.com.br", link:"https://github.com/quantumcert/qc-backend"},
   {g:"own", t:"RAÍZES", nodes:[["coleta",""],["visão IA","a"],["confere","h"],["Solana",""],["multisig","h"]], name:"Raízes do Futuro", origin:"Boipeba, Bahia", badge:"1º LUGAR UNICEF", cat:["chain","ia"], art:"tree", pal:["#1F7A55","#7CF5E4","#FF8A3D"],
    syn:"Coleta de resíduos validada por IA e receita rastreável em blockchain.",
    lead:"Economia circular, renda familiar e proteção à infância em Boipeba, com blockchain e dinheiro programável. Quem coleta resíduo é pago por isso e parte da receita vai para a saúde e a educação das crianças. Vencedor do UNICEF Youth Challenge Blockchain 2026.",
@@ -925,10 +936,10 @@ function flowSVG(nodes,big){
   if(!reduce) g+=`<circle cy="${y}" r="${big?5:4}" fill="#7CF5E4"><animate attributeName="cx" values="${pad};${W-pad}" dur="${big?6:4.5}s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.92;1" dur="${big?6:4.5}s" repeatCount="indefinite"/></circle>`;
   return `<svg viewBox="0 0 ${W} ${H}" width="100%" preserveAspectRatio="xMidYMid meet" aria-hidden="true">${g}</svg>`;
 }
-const shelves={rede:document.getElementById("shelfRede"),own:document.getElementById("shelfOwn")};
+const shelves={rede:document.getElementById("shelfRede"),qc:document.getElementById("shelfQc"),own:document.getElementById("shelfOwn")};
 let curFilter="all";
 function renderShelves(){
-  shelves.rede.innerHTML=""; shelves.own.innerHTML="";
+  Object.values(shelves).forEach(s=>{ s.innerHTML=""; });
   tr(EPS,"eps").forEach((ep,i)=>{
     const b=document.createElement("button"); b.type="button"; b.className="pc"; b.dataset.open=i; b.dataset.cat=ep.cat.join(" ");
     b.setAttribute("aria-label",`${ep.name}. ${ep.syn}`);
