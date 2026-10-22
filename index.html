@@ -215,6 +215,21 @@ section.block{padding:110px 0;position:relative}
 .item small{font-family:var(--mono);font-size:12px;color:var(--faint)}
 .item.award b{color:var(--dende)}
 
+.amb{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px}
+.amb-badges{border:1px solid var(--line);background:var(--deep);padding:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-content:start}
+.amb-badges figure{margin:0;text-align:center}
+.amb-badges img{display:block;width:100%;height:auto;border-radius:10px}
+.amb-badges figcaption{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:8px;line-height:1.3}
+.amb-evs{border:1px solid var(--line);background:var(--deep);padding:22px}
+.amb-evs h3{font-family:var(--mono);font-size:13px;color:var(--hope);font-weight:400;margin:0 0 16px;letter-spacing:.02em}
+.amb-ev{display:block;padding:0 0 16px;margin:0 0 16px;border-bottom:1px dashed var(--line);color:inherit;text-decoration:none}
+.amb-ev b{display:block;font-family:var(--hud);font-size:17px;line-height:1.3}
+.amb-ev span{display:block;font-size:14.5px;color:var(--dim)}
+.amb-ev small{display:block;font-family:var(--mono);font-size:12px;color:var(--faint);margin-bottom:2px}
+.amb-ev i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--hope)}
+.amb-ev:hover b{color:var(--hope)}
+.amb-note{margin:0;font-size:13.5px;color:var(--faint)}
+
 .offline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .tile{border:1px solid var(--line);background:var(--deep);overflow:hidden;cursor:default}
 .tile .vis{height:180px;position:relative;overflow:hidden}
@@ -404,6 +419,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .xp-list button[aria-selected="true"]{box-shadow:inset 0 -3px 0 var(--hope)}
   .xp-pane{padding:24px 20px}
   .skills,.cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .amb{grid-template-columns:minmax(0,1fr)}
+  .amb-badges{max-width:520px}
   .offline{grid-template-columns:minmax(0,1fr)}
   .code-win{justify-self:stretch;width:100%}
   .cw-code{height:260px;font-size:13px}
@@ -583,15 +600,35 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
           </div>
           <div class="col"><h3 data-i18n="aw.h">prêmios e participações</h3>
             <div class="item award" data-i18n="aw1"><b>1º lugar, UNICEF Youth Challenge Blockchain</b><span>Projeto Raízes do Futuro</span><small>ago 2026</small></div>
-            <div class="item award" data-i18n="aw2"><b>Embaixadora Estudantil Google 2026</b><span>Referência local em IA com o Google Gemini</span><small>2026</small></div>
+            <div class="item award" data-i18n="aw2"><b>Embaixadora Estudantil Google 2026</b><span>Referência local em IA com o Google Gemini, 3 selos e 5 certificados</span><small>2026</small></div>
             <div class="item" data-i18n="aw3"><b>Hackathons Transpetro, Mining Hub e Vale do Dendê</b><span>Machine learning, dados geológicos e monitoramento</span><small>2025</small></div>
             <div class="item" data-i18n="aw4"><b>Artigo no 51º COBENGE</b><span>Ações para ampliar a presença de mulheres em STEM</span><small>2023</small></div>
           </div>
         </div>
       </div>
 
+      <div class="about-sec" id="embaixadora">
+        <div class="ttl"><h2 data-i18n="sec.amb"><span class="n">04</span>Embaixadora Estudantil Google 2026</h2><p data-i18n="sec.amb.p">Selos conquistados no programa e certificados dos eventos de que participei.</p></div>
+        <div class="amb">
+          <div class="amb-badges">
+            <figure><img src="assets/embaixadora/badge-exploradora.png" alt="Selo Exploradora, Embaixadores Estudantis do Google" data-i18n-attr="alt:amb.b1.alt" loading="lazy" width="1200" height="1200"><figcaption data-i18n="amb.b1">Exploradora</figcaption></figure>
+            <figure><img src="assets/embaixadora/badge-expert-comunidade.png" alt="Selo Expert de Comunidade, Embaixadores Estudantis do Google" data-i18n-attr="alt:amb.b2.alt" loading="lazy" width="1200" height="1200"><figcaption data-i18n="amb.b2">Expert de Comunidade</figcaption></figure>
+            <figure><img src="assets/embaixadora/badge-catalisadora.png" alt="Selo Catalisadora, Embaixadores Estudantis do Google" data-i18n-attr="alt:amb.b3.alt" loading="lazy" width="1200" height="1200"><figcaption data-i18n="amb.b3">Catalisadora</figcaption></figure>
+          </div>
+          <div class="amb-evs">
+            <h3 data-i18n="amb.ev.h">certificados e eventos</h3>
+            <a class="amb-ev" href="assets/embaixadora/cert-capacita-gemini.pdf" target="_blank" rel="noopener" data-i18n="amb.ev5"><small>25 set 2026 · 2 h · híbrido</small><b>Capacita+: Construa com o Gemini</b><span>Google Cloud, em parceria com instituições de ensino superior</span><i>ver certificado ↗</i></a>
+            <a class="amb-ev" href="assets/embaixadora/cert-conversa-googler.pdf" target="_blank" rel="noopener" data-i18n="amb.ev4"><small>22 set 2026 · 45 min</small><b>Conversa com Googler com Bernardo Barlach</b><span>Carreiras e desenvolvimento profissional na era da IA</span><i>ver certificado ↗</i></a>
+            <a class="amb-ev" href="assets/embaixadora/cert-masterclass-gemini-conteudo.png" target="_blank" rel="noopener" data-i18n="amb.ev3"><small>16 set 2026 · 1 h</small><b>Masterclass #1 com Otávio Pompeu: Google Gemini para criação de conteúdo</b><span>Criação de conteúdo e posicionamento digital com o Gemini</span><i>ver certificado ↗</i></a>
+            <a class="amb-ev" href="assets/embaixadora/cert-gemini-3.pdf" target="_blank" rel="noopener" data-i18n="amb.ev2"><small>10 set 2026 · 30 min</small><b>Sessão de Google Gemini 3</b><span>Ferramentas do Gemini na rotina acadêmica e universitária</span><i>ver certificado ↗</i></a>
+            <a class="amb-ev" href="assets/embaixadora/cert-gemini-canvas.pdf" target="_blank" rel="noopener" data-i18n="amb.ev1"><small>4 set 2026 · 30 min</small><b>Sessão de Google Gemini: Canvas com banco de dados</b><span>Gemini Canvas aplicado à rotina acadêmica</span><i>ver certificado ↗</i></a>
+            <p class="amb-note" data-i18n="amb.note">Encontros do Programa Embaixadores Estudantis do Google 2026, promovidos pelo Amplifica.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="about-sec">
-        <div class="ttl"><h2 data-i18n="sec.off"><span class="n">04</span>Fora do terminal</h2><p data-i18n="sec.off.p">O que me recarrega quando o código para de rodar.</p></div>
+        <div class="ttl"><h2 data-i18n="sec.off"><span class="n">05</span>Fora do terminal</h2><p data-i18n="sec.off.p">O que me recarrega quando o código para de rodar.</p></div>
         <div class="offline" id="offline"></div>
       </div>
     </div>
